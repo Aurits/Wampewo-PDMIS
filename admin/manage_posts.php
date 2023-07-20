@@ -404,7 +404,7 @@ if (isset($_POST['add_service'])) {
     $description = $_POST['description'];
 
     // Use prepared statement to avoid SQL injection
-    $stmt = $conn->prepare("INSERT INTO Services (Name, Description) VALUES (?, ?)");
+    $stmt = $conn->prepare("INSERT INTO services (Name, Description) VALUES (?, ?)");
     $stmt->bind_param("ss", $name, $description);
 
     if ($stmt->execute()) {

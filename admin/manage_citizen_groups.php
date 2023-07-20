@@ -357,7 +357,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                               // Replace the static data with dynamic data from the database
 
                               // Query example
-                              $sql = "SELECT * FROM Citizen_Groups"; // Replace 'Citizen_Groups' with the actual table name
+                              $sql = "SELECT * FROM citizen_groups"; // Replace 'Citizen_Groups' with the actual table name
                               $result = mysqli_query($conn, $sql);
 
                               if (mysqli_num_rows($result) > 0) {
