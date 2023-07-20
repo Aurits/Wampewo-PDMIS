@@ -378,10 +378,13 @@ function deleteService(serviceID) {
 # Include connection
 require_once "./config.php";
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 
 // Function to fetch and display services from the database
 function getServices($conn) {
-    $sql = "SELECT * FROM Services";
+    $sql = "SELECT * FROM services";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
