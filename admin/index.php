@@ -64,34 +64,52 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
         </ul>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item dropdown d-none d-lg-block">
-            <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
+            <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> The 7 Pillars </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
               <a class="dropdown-item py-3">
-                <p class="mb-0 font-weight-medium float-left">Select category</p>
+                <p class="mb-0 font-weight-medium float-left">The 7 Pillars</p>
               </a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item preview-item">
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Bootstrap Bundle </p>
-                  <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Production, Storage, Processing and Marketing </p>
+
                 </div>
               </a>
               <a class="dropdown-item preview-item">
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Angular Bundle</p>
-                  <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Infrastracture and Economic Services</p>
+
                 </div>
               </a>
               <a class="dropdown-item preview-item">
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">VUE Bundle</p>
-                  <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Financial Inclusion</p>
+
                 </div>
               </a>
               <a class="dropdown-item preview-item">
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">React Bundle</p>
-                  <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Social Services</p>
+
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Mindset change</p>
+
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Parish Based Management...</p>
+
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Governance and Administration</p>
+
                 </div>
               </a>
             </div>
@@ -150,7 +168,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="countDropdown">
               <a class="dropdown-item py-3">
-                <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
+                <p class="mb-0 font-weight-medium float-left">you have 2 unread mails </p>
                 <span class="badge badge-pill badge-primary float-right">View all</span>
               </a>
               <div class="dropdown-divider"></div>
@@ -159,8 +177,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                   <img src="../images/logo2.png" alt="image" class="img-sm profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
-                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Government of Uganda </p>
+                  <p class="fw-light small-text mb-0"> Parish Development Model </p>
                 </div>
               </a>
               <a class="dropdown-item preview-item">
@@ -168,19 +186,11 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                   <img src="../images/logo1.jpeg" alt="image" class="img-sm profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
-                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Wampewo Parish</p>
+                  <p class="fw-light small-text mb-0"> Parish Development Model </p>
                 </div>
               </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <img src="../images/logo1.jpeg" alt="image" class="img-sm profile-pic">
-                </div>
-                <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
-                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
-                </div>
-              </a>
+
             </div>
           </li>
           <li class="nav-item dropdown d-none d-lg-block user-dropdown">
@@ -189,11 +199,11 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
                 <img class="img-md rounded-circle" src="../images/user.png" alt="Profile image">
-                <p class="mb-1 mt-3 font-weight-semibold">Name Name</p>
-                <p class="fw-light text-muted mb-0">email@gmail.com</p>
+                <p class="mb-1 mt-3 font-weight-semibold">Wampewo Parish</p>
+                <p class="fw-light text-muted mb-0">wampewo@parish.gov</p>
               </div>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
+
+              <a class="dropdown-item" href="communication.php"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
               <a class="dropdown-item" href="./logout.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
             </div>
           </li>
@@ -330,406 +340,357 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                     <div class="row">
                       <div class="col-sm-12">
                         <div class="statistics-details d-flex align-items-center justify-content-between">
+
+                          <?php
+                          # Include connection
+                          require_once "./config.php";
+                          error_reporting(E_ALL);
+                          ini_set('display_errors', 1);
+
+                          // Function to get statistics from the database
+                          function getStatistics($conn)
+                          {
+                            // Query to get the count of registered citizens
+                            $sqlCitizens = "SELECT COUNT(*) AS total_citizens FROM wampewo_citizens";
+                            $resultCitizens = mysqli_query($conn, $sqlCitizens);
+                            $rowCitizens = mysqli_fetch_assoc($resultCitizens);
+                            $totalCitizens = $rowCitizens['total_citizens'];
+
+                            // Query to get the count of registered groups
+                            $sqlGroups = "SELECT COUNT(*) AS total_groups FROM citizen_groups";
+                            $resultGroups = mysqli_query($conn, $sqlGroups);
+                            $rowGroups = mysqli_fetch_assoc($resultGroups);
+                            $totalGroups = $rowGroups['total_groups'];
+
+                            // Query to get the count of posts
+                            $sqlPosts = "SELECT COUNT(*) AS total_posts FROM services";
+                            $resultPosts = mysqli_query($conn, $sqlPosts);
+                            $rowPosts = mysqli_fetch_assoc($resultPosts);
+                            $totalPosts = $rowPosts['total_posts'];
+
+                            // Query to get the count of messages
+                            $sqlMessages = "SELECT COUNT(*) AS total_messages FROM messages"; // Replace 'messages' with the actual table name
+                            $resultMessages = mysqli_query($conn, $sqlMessages);
+                            $rowMessages = mysqli_fetch_assoc($resultMessages);
+                            $totalMessages = $rowMessages['total_messages'];
+
+                            return [
+                              'total_citizens' => $totalCitizens,
+                              'total_groups' => $totalGroups,
+                              'total_posts' => $totalPosts,
+                              'total_messages' => $totalMessages,
+                            ];
+                          }
+
+                          // Get statistics from the database
+                          $statistics = getStatistics($conn);
+
+                          // Close the database connection
+
+                          ?>
+
+
+
+
                           <div>
-                            <p class="statistics-title">Bounce Rate</p>
-                            <h3 class="rate-percentage">32.53%</h3>
-                            <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p>
-                          </div>
-                          <div>
-                            <p class="statistics-title">Page Views</p>
-                            <h3 class="rate-percentage">7,682</h3>
-                            <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>+0.1%</span></p>
-                          </div>
-                          <div>
-                            <p class="statistics-title">New Sessions</p>
-                            <h3 class="rate-percentage">68.8</h3>
-                            <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p>
+                            <p class="statistics-title">Registered citizens</p>
+                            <h3 class="rate-percentage"><?php echo $statistics['total_citizens']; ?></h3>
                           </div>
                           <div class="d-none d-md-block">
-                            <p class="statistics-title">Avg. Time on Site</p>
-                            <h3 class="rate-percentage">2m:35s</h3>
-                            <p class="text-success d-flex"><i class="mdi mdi-menu-down"></i><span>+0.8%</span></p>
+                            <p class="statistics-title">Registered groups</p>
+                            <h3 class="rate-percentage"><?php echo $statistics['total_groups']; ?></h3>
                           </div>
                           <div class="d-none d-md-block">
-                            <p class="statistics-title">New Sessions</p>
-                            <h3 class="rate-percentage">68.8</h3>
-                            <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p>
+                            <p class="statistics-title">Posts</p>
+                            <h3 class="rate-percentage"><?php echo $statistics['total_posts']; ?></h3>
                           </div>
                           <div class="d-none d-md-block">
-                            <p class="statistics-title">Avg. Time on Site</p>
-                            <h3 class="rate-percentage">2m:35s</h3>
-                            <p class="text-success d-flex"><i class="mdi mdi-menu-down"></i><span>+0.8%</span></p>
+                            <p class="statistics-title">Messages</p>
+                            <h3 class="rate-percentage"><?php echo $statistics['total_messages']; ?></h3>
                           </div>
+
                         </div>
                       </div>
                     </div>
-                    <div class="row m-auto">
-                      <div class="col-lg-12 d-flex flex-column">
-                        <div class="row flex-grow">
-                          <div class="col-12 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body">
-                                <div class="d-sm-flex justify-content-between align-items-start">
-                                  <div>
-                                    <h4 class="card-title card-title-dash">Market Overview</h4>
-                                    <p class="card-subtitle card-subtitle-dash">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-                                  </div>
-                                  <div>
+                  </div>
+                  <div class="row m-auto">
+                    <div class="col-lg-12 d-flex flex-column">
+                      <div class="row flex-grow">
+                        <div class="col-12 grid-margin stretch-card">
+                          <div class="card card-rounded">
+                            <div class="card-body">
+                              <div class="d-sm-flex justify-content-between align-items-start">
+                                <div>
+                                  <h4 class="card-title card-title-dash">Investment</h4>
 
+                                </div>
+                                <div>
+
+                                </div>
+                              </div>
+                              <div class="d-sm-flex align-items-center mt-1 justify-content-between">
+                                <div class="d-sm-flex align-items-center mt-4 justify-content-between">
+                                  <h2 class="me-2 fw-bold">32Billion</h2>
+                                  <h4 class="me-2">UGX</h4>
+
+                                </div>
+                                <div class="me-3">
+                                  <div id="marketing-overview-legend"></div>
+                                </div>
+                              </div>
+                              <div class="chartjs-bar-wrapper mt-3">
+                                <canvas id="marketingOverview"></canvas>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row flex-grow">
+                        <div class="col-12 grid-margin stretch-card">
+                          <div class="card card-rounded">
+                            <div class="card-body">
+                              <div class="d-sm-flex justify-content-between align-items-start">
+                                <div>
+                                  <h4 class="card-title card-title-dash">Recent Groups</h4>
+                                  <p class="card-subtitle card-subtitle-dash">For this month</p>
+                                </div>
+
+                              </div>
+                              <div class="table-responsive  mt-1">
+                                <?php
+                                # Include connection
+                                require_once "./config.php";
+
+                                // Function to display citizen groups in the table
+                                function displayCitizenGroups($conn)
+                                {
+                                  // Query to fetch citizen groups from the database
+                                  $sql = "SELECT * FROM citizen_groups";
+                                  $result = mysqli_query($conn, $sql);
+
+                                  if (mysqli_num_rows($result) > 0) {
+                                    echo '<div class="table-responsive mt-1">';
+                                    echo '<table class="table select-table">';
+                                    echo '<thead>';
+                                    echo '<tr>';
+                                    echo '<th>Group ID</th>';
+                                    echo '<th>Group Name</th>';
+                                    echo '<th>Description</th>';
+                                    echo '<th>Funding Proposal</th>';
+                                    echo '<th>Action</th>';
+                                    echo '</tr>';
+                                    echo '</thead>';
+                                    echo '<tbody>';
+
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                      echo '<tr>';
+                                      echo '<td>' . $row['ID'] . '</td>';
+                                      echo '<td>' . $row['Name'] . '</td>';
+                                      echo '<td>' . $row['Business_Description'] . '</td>';
+                                      echo '<td>' . $row['Funding_Proposal'] . '</td>';
+                                      echo '<td>';
+                                      echo '<button class="btn btn-primary text-white me-1" onclick="manageGroup(' . $row['ID'] . ')"><i class="icon-pencil"></i> Manage</button>';
+                                      echo '<button class="btn btn-danger" onclick="deleteGroup(' . $row['ID'] . ')"><i class="icon-trash"></i> Delete</button>';
+                                      echo '</td>';
+                                      echo '</tr>';
+                                    }
+
+                                    echo '</tbody>';
+                                    echo '</table>';
+                                    echo '</div>';
+                                  } else {
+                                    echo '<p>No citizen groups found.</p>';
+                                  }
+                                }
+
+                                // Delete group from the database
+                                if (isset($_POST['delete_group'])) {
+                                  $groupID = $_POST['group_id'];
+
+                                  // Use prepared statement to avoid SQL injection
+                                  $stmt = $conn->prepare("DELETE FROM citizen_groups WHERE ID = ?");
+                                  $stmt->bind_param("i", $groupID);
+
+                                  if ($stmt->execute()) {
+                                    echo '<script>alert("Group deleted successfully!");</script>';
+                                  } else {
+                                    echo '<script>alert("Failed to delete group. Please try again.");</script>';
+                                  }
+
+                                  // Close the prepared statement
+                                  $stmt->close();
+                                }
+
+                                // Display citizen groups in the table
+                                displayCitizenGroups($conn);
+
+                                // Close the database connection
+                                mysqli_close($conn);
+                                ?>
+                                <!-- Add Group Button -->
+                                <a href="add-group.php" class="btn btn-primary text-white me-0"><i class="icon-plus"></i> Add Group</a>
+
+                                <script>
+                                  // Function to manage group and display confirmation alert before deleting
+                                  function manageGroup(groupID) {
+                                    var confirmation = confirm("Are you sure you want to manage this group? This will delete the record and redirect you to add it afresh.");
+                                    if (confirmation) {
+                                      window.location.href = "add-group.php?id=" + groupID;
+                                    }
+                                  }
+
+                                  // Function to delete group and display confirmation alert
+                                  function deleteGroup(groupID) {
+                                    var confirmation = confirm("Are you sure you want to delete this group?");
+                                    if (confirmation) {
+                                      // Create a form to submit the group ID for deletion
+                                      var form = document.createElement("form");
+                                      form.method = "post";
+                                      form.action = ""; // Add the action URL here
+
+                                      var input = document.createElement("input");
+                                      input.type = "hidden";
+                                      input.name = "group_id";
+                                      input.value = groupID;
+                                      form.appendChild(input);
+
+                                      var input2 = document.createElement("input");
+                                      input2.type = "hidden";
+                                      input2.name = "delete_group";
+                                      input2.value = "1";
+                                      form.appendChild(input2);
+
+                                      document.body.appendChild(form);
+                                      form.submit();
+                                    }
+                                  }
+                                </script>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row flex-grow">
+                        <div class="col-md-6 col-lg-6 grid-margin stretch-card">
+                          <div class="card card-rounded">
+                            <div class="card-body card-rounded">
+                              <h4 class="card-title  card-title-dash">Recent Events</h4>
+                              <div class="list align-items-center border-bottom py-2">
+                                <div class="wrapper w-100">
+                                  <p class="mb-2 font-weight-medium">
+                                    Change in Directors
+                                  </p>
+                                  <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                      <i class="mdi mdi-calendar text-muted me-1"></i>
+                                      <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
+                                    </div>
                                   </div>
                                 </div>
-                                <div class="d-sm-flex align-items-center mt-1 justify-content-between">
-                                  <div class="d-sm-flex align-items-center mt-4 justify-content-between">
-                                    <h2 class="me-2 fw-bold">$36,2531.00</h2>
-                                    <h4 class="me-2">USD</h4>
-                                    <h4 class="text-success">(+1.37%)</h4>
-                                  </div>
-                                  <div class="me-3">
-                                    <div id="marketing-overview-legend"></div>
+                              </div>
+                              <div class="list align-items-center border-bottom py-2">
+                                <div class="wrapper w-100">
+                                  <p class="mb-2 font-weight-medium">
+                                    Other Events
+                                  </p>
+                                  <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                      <i class="mdi mdi-calendar text-muted me-1"></i>
+                                      <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
+                                    </div>
                                   </div>
                                 </div>
-                                <div class="chartjs-bar-wrapper mt-3">
-                                  <canvas id="marketingOverview"></canvas>
+                              </div>
+                              <div class="list align-items-center border-bottom py-2">
+                                <div class="wrapper w-100">
+                                  <p class="mb-2 font-weight-medium">
+                                    Quarterly Report
+                                  </p>
+                                  <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                      <i class="mdi mdi-calendar text-muted me-1"></i>
+                                      <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="list align-items-center border-bottom py-2">
+                                <div class="wrapper w-100">
+                                  <p class="mb-2 font-weight-medium">
+                                    Change in Directors
+                                  </p>
+                                  <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                      <i class="mdi mdi-calendar text-muted me-1"></i>
+                                      <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="list align-items-center pt-3">
+                                <div class="wrapper w-100">
+                                  <p class="mb-0">
+                                    <a href="#" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
+                                  </p>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="row flex-grow">
-                          <div class="col-12 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body">
-                                <div class="d-sm-flex justify-content-between align-items-start">
-                                  <div>
-                                    <h4 class="card-title card-title-dash">Pending Requests</h4>
-                                    <p class="card-subtitle card-subtitle-dash">You have 50+ new requests</p>
-                                  </div>
+                        <div class="col-md-6 col-lg-6 grid-margin stretch-card">
 
-                                </div>
-                                <div class="table-responsive  mt-1">
-                                  <table class="table select-table">
-                                    <thead>
-                                      <tr>
-                                        <th>
-                                          <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                              <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                          </div>
-                                        </th>
-                                        <th>Customer</th>
-                                        <th>Company</th>
-                                        <th>Progress</th>
-                                        <th>Status</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td>
-                                          <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                              <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="d-flex ">
-                                            <img src="../images/logo2.png" alt="">
-                                            <div>
-                                              <h6>Brandon Washington</h6>
-                                              <p>Head admin</p>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <h6>Company name 1</h6>
-                                          <p>company type</p>
-                                        </td>
-                                        <td>
-                                          <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                              <p class="text-success">79%</p>
-                                              <p>85/162</p>
-                                            </div>
-                                            <div class="progress progress-md">
-                                              <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="badge badge-opacity-warning">In progress</div>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>
-                                          <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                              <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="d-flex">
-                                            <img src="../images/logo2.png" alt="">
-                                            <div>
-                                              <h6>Laura Brooks</h6>
-                                              <p>Head admin</p>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <h6>Company name 1</h6>
-                                          <p>company type</p>
-                                        </td>
-                                        <td>
-                                          <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                              <p class="text-success">65%</p>
-                                              <p>85/162</p>
-                                            </div>
-                                            <div class="progress progress-md">
-                                              <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="badge badge-opacity-warning">In progress</div>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>
-                                          <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                              <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="d-flex">
-                                            <img src="../images/logo2.png" alt="">
-                                            <div>
-                                              <h6>Wayne Murphy</h6>
-                                              <p>Head admin</p>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <h6>Company name 1</h6>
-                                          <p>company type</p>
-                                        </td>
-                                        <td>
-                                          <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                              <p class="text-success">65%</p>
-                                              <p>85/162</p>
-                                            </div>
-                                            <div class="progress progress-md">
-                                              <div class="progress-bar bg-warning" role="progressbar" style="width: 38%" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="badge badge-opacity-warning">In progress</div>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>
-                                          <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                              <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="d-flex">
-                                            <img src="../images/logo2.png" alt="">
-                                            <div>
-                                              <h6>Matthew Bailey</h6>
-                                              <p>Head admin</p>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <h6>Company name 1</h6>
-                                          <p>company type</p>
-                                        </td>
-                                        <td>
-                                          <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                              <p class="text-success">65%</p>
-                                              <p>85/162</p>
-                                            </div>
-                                            <div class="progress progress-md">
-                                              <div class="progress-bar bg-danger" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="badge badge-opacity-danger">Pending</div>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>
-                                          <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                              <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="d-flex">
-                                            <img src="../images/logo2.png" alt="">
-                                            <div>
-                                              <h6>Katherine Butler</h6>
-                                              <p>Head admin</p>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <h6>Company name 1</h6>
-                                          <p>company type</p>
-                                        </td>
-                                        <td>
-                                          <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                              <p class="text-success">65%</p>
-                                              <p>85/162</p>
-                                            </div>
-                                            <div class="progress progress-md">
-                                              <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="badge badge-opacity-success">Completed</div>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </div>
+                          <div class="card card-rounded">
+                            <div class="card-body">
+                              <div class="d-flex align-items-center justify-content-between mb-3">
+                                <h4 class="card-title card-title-dash">Activities</h4>
+                                <p class="mb-0">In Wampewo</p>
                               </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row flex-grow">
-                          <div class="col-md-6 col-lg-6 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body card-rounded">
-                                <h4 class="card-title  card-title-dash">Recent Events</h4>
-                                <div class="list align-items-center border-bottom py-2">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-2 font-weight-medium">
-                                      Change in Directors
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                      <div class="d-flex align-items-center">
-                                        <i class="mdi mdi-calendar text-muted me-1"></i>
-                                        <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
-                                      </div>
-                                    </div>
+                              <ul class="bullet-line-list">
+                                <li>
+                                  <div class="d-flex justify-content-between">
+                                    <div><span class="text-light-green">Farming</span> Mother's Union</div>
+                                    <p></p>
                                   </div>
-                                </div>
-                                <div class="list align-items-center border-bottom py-2">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-2 font-weight-medium">
-                                      Other Events
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                      <div class="d-flex align-items-center">
-                                        <i class="mdi mdi-calendar text-muted me-1"></i>
-                                        <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
-                                      </div>
-                                    </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex justify-content-between">
+                                    <div><span class="text-light-green">Supermarket</span> Youth club</div>
+                                    <p></p>
                                   </div>
-                                </div>
-                                <div class="list align-items-center border-bottom py-2">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-2 font-weight-medium">
-                                      Quarterly Report
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                      <div class="d-flex align-items-center">
-                                        <i class="mdi mdi-calendar text-muted me-1"></i>
-                                        <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
-                                      </div>
-                                    </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex justify-content-between">
+                                    <div><span class="text-light-green">Fishing</span> Father's Circle</div>
+                                    <p></p>
                                   </div>
-                                </div>
-                                <div class="list align-items-center border-bottom py-2">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-2 font-weight-medium">
-                                      Change in Directors
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                      <div class="d-flex align-items-center">
-                                        <i class="mdi mdi-calendar text-muted me-1"></i>
-                                        <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
+                                </li>
 
-                                <div class="list align-items-center pt-3">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-0">
-                                      <a href="#" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
-                                    </p>
+                                <li>
+                                  <div class="d-flex justify-content-between">
+                                    <div><span class="text-light-green">Farming</span> Mother's Union</div>
+                                    <p></p>
                                   </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6 col-lg-6 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body">
-                                <div class="d-flex align-items-center justify-content-between mb-3">
-                                  <h4 class="card-title card-title-dash">Activities</h4>
-                                  <p class="mb-0">20 finished, 5 remaining</p>
-                                </div>
-                                <ul class="bullet-line-list">
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Ben Tossell</span> assign you a task</div>
-                                      <p>Just now</p>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Oliver Noah</span> assign you a task</div>
-                                      <p>1h</p>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Jack William</span> assign you a task</div>
-                                      <p>1h</p>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Leo Lucas</span> assign you a task</div>
-                                      <p>1h</p>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Thomas Henry</span> assign you a task</div>
-                                      <p>1h</p>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Ben Tossell</span> assign you a task</div>
-                                      <p>1h</p>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Ben Tossell</span> assign you a task</div>
-                                      <p>1h</p>
-                                    </div>
-                                  </li>
-                                </ul>
-                                <div class="list align-items-center pt-3">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-0">
-                                      <a href="#" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
-                                    </p>
+                                </li>
+                                <li>
+                                  <div class="d-flex justify-content-between">
+                                    <div><span class="text-light-green">Supermarket</span> Youth club</div>
+                                    <p></p>
                                   </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex justify-content-between">
+                                    <div><span class="text-light-green">Fishing</span> Father's Circle</div>
+                                    <p></p>
+                                  </div>
+                                </li>
+                              </ul>
+                              <div class="list align-items-center pt-3">
+                                <div class="wrapper w-100">
+                                  <p class="mb-0">
+                                    <a href="#" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
+                                  </p>
                                 </div>
                               </div>
                             </div>
@@ -743,20 +704,23 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
             </div>
           </div>
         </div>
-        <!-- content-wrapper ends -->
-
-        <footer class="footer">
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampewo Parish)</span>
-            <img class="m-auto" width="90px" height="50px" src="../images/logo2.png" alt="image">
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
-          </div>
-        </footer>
-        <!-- partial -->
       </div>
-      <!-- main-panel ends -->
     </div>
-    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- content-wrapper ends -->
+
+  <footer class="footer">
+    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+      <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampewo Parish)</span>
+      <img class="m-auto" width="90px" height="50px" src="../images/logo2.png" alt="image">
+      <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
+    </div>
+  </footer>
+  <!-- partial -->
+  </div>
+  <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
 

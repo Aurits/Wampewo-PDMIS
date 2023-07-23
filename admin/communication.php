@@ -12,6 +12,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -64,34 +65,52 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
         </ul>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item dropdown d-none d-lg-block">
-            <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
+            <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> The 7 Pillars </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
               <a class="dropdown-item py-3">
-                <p class="mb-0 font-weight-medium float-left">Select category</p>
+                <p class="mb-0 font-weight-medium float-left">The 7 Pillars</p>
               </a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item preview-item">
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Bootstrap Bundle </p>
-                  <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Production, Storage, Processing and Marketing </p>
+
                 </div>
               </a>
               <a class="dropdown-item preview-item">
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Angular Bundle</p>
-                  <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Infrastracture and Economic Services</p>
+
                 </div>
               </a>
               <a class="dropdown-item preview-item">
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">VUE Bundle</p>
-                  <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Financial Inclusion</p>
+
                 </div>
               </a>
               <a class="dropdown-item preview-item">
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">React Bundle</p>
-                  <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Social Services</p>
+
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Mindset change</p>
+
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Parish Based Management...</p>
+
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Governance and Administration</p>
+
                 </div>
               </a>
             </div>
@@ -150,7 +169,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="countDropdown">
               <a class="dropdown-item py-3">
-                <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
+                <p class="mb-0 font-weight-medium float-left">you have 2 unread mails </p>
                 <span class="badge badge-pill badge-primary float-right">View all</span>
               </a>
               <div class="dropdown-divider"></div>
@@ -159,8 +178,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                   <img src="../images/logo2.png" alt="image" class="img-sm profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
-                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Government of Uganda </p>
+                  <p class="fw-light small-text mb-0"> Parish Development Model </p>
                 </div>
               </a>
               <a class="dropdown-item preview-item">
@@ -168,19 +187,11 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                   <img src="../images/logo1.jpeg" alt="image" class="img-sm profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
-                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Wampewo Parish</p>
+                  <p class="fw-light small-text mb-0"> Parish Development Model </p>
                 </div>
               </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <img src="../images/logo1.jpeg" alt="image" class="img-sm profile-pic">
-                </div>
-                <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
-                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
-                </div>
-              </a>
+
             </div>
           </li>
           <li class="nav-item dropdown d-none d-lg-block user-dropdown">
@@ -189,11 +200,11 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
                 <img class="img-md rounded-circle" src="../images/user.png" alt="Profile image">
-                <p class="mb-1 mt-3 font-weight-semibold">Name Name</p>
-                <p class="fw-light text-muted mb-0">email@gmail.com</p>
+                <p class="mb-1 mt-3 font-weight-semibold">Wampewo Parish</p>
+                <p class="fw-light text-muted mb-0">wampewo@parish.gov</p>
               </div>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
+
+              <a class="dropdown-item" href="communication.php"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
               <a class="dropdown-item" href="./logout.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
             </div>
           </li>
@@ -327,43 +338,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                 </div>
                 <div class="tab-content tab-content-basic">
                   <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
-                    <div class="row">
-                      <div class="col-sm-12">
 
-                        <div class="card">
-                          <div class="card-header">
-                            <h3 class="text-center">Communication Center</h3>
-                          </div>
-                          <div class="card-body">
-                            <?php
-                            # Include connection
-                            require_once "./config.php";
-                            // Your PHP code to implement messaging system or notifications center
-                            // Replace the static data with dynamic data from the database
-
-                            // Query example
-                            $sql = "SELECT * FROM messages"; // Replace 'Messages' with the actual table name
-                            $result = mysqli_query($conn, $sql);
-
-                            if (mysqli_num_rows($result) > 0) {
-                              while ($row = mysqli_fetch_assoc($result)) {
-                                // Display message details
-                                echo '<p>From: ' . $row['Sender'] . '</p>';
-                                echo '<p>Subject: ' . $row['Subject'] . '</p>';
-                                echo '<p>Message: ' . $row['Content'] . '</p>';
-                                echo '<hr>';
-                              }
-                            } else {
-                              echo '<p>No messages found.</p>';
-                            }
-
-                            // Close the database connection
-                            mysqli_close($conn);
-                            ?>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                     <div class="row m-auto">
                       <div class="col-lg-12 d-flex flex-column">
                         <div class="row flex-grow">
@@ -372,8 +347,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                               <div class="card-body">
                                 <div class="d-sm-flex justify-content-between align-items-start">
                                   <div>
-                                    <h4 class="card-title card-title-dash">Pending Requests</h4>
-                                    <p class="card-subtitle card-subtitle-dash">You have 50+ new requests</p>
+                                    <h4 class="card-title card-title-dash">MailBox</h4>
+                                    <p class="card-subtitle card-subtitle-dash">You have 20+ new Messages</p>
                                   </div>
 
                                 </div>
@@ -387,83 +362,59 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                                               <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
                                           </div>
                                         </th>
-                                        <th>Customer</th>
-                                        <th>Company</th>
-                                        <th>Progress</th>
-                                        <th>Status</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Subject</th>
+                                        <th>Message</th>
                                       </tr>
                                     </thead>
                                     <tbody>
-                                      <tr>
-                                        <td>
-                                          <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                              <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="d-flex ">
-                                            <img src="../images/logo2.png" alt="">
-                                            <div>
-                                              <h6>Brandon Washington</h6>
-                                              <p>Head admin</p>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <h6>Company name 1</h6>
-                                          <p>company type</p>
-                                        </td>
-                                        <td>
-                                          <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                              <p class="text-success">79%</p>
-                                              <p>85/162</p>
-                                            </div>
-                                            <div class="progress progress-md">
-                                              <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="badge badge-opacity-warning">In progress</div>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>
-                                          <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                              <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="d-flex">
-                                            <img src="../images/logo2.png" alt="">
-                                            <div>
-                                              <h6>Laura Brooks</h6>
-                                              <p>Head admin</p>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <h6>Company name 1</h6>
-                                          <p>company type</p>
-                                        </td>
-                                        <td>
-                                          <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                              <p class="text-success">65%</p>
-                                              <p>85/162</p>
-                                            </div>
-                                            <div class="progress progress-md">
-                                              <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="badge badge-opacity-warning">In progress</div>
-                                        </td>
-                                      </tr>
+
+                                      <?php
+                                      # Include connection
+                                      require_once "./config.php";
+
+                                      // Query example
+                                      $sql = "SELECT * FROM messages"; // Replace 'messages' with the actual table name
+                                      $result = mysqli_query($conn, $sql);
+
+                                      if (mysqli_num_rows($result) > 0) {
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                          echo "<tr>";
+                                          echo "<td>";
+                                          echo '<div class="form-check form-check-flat mt-0">';
+                                          echo '<label class="form-check-label">';
+                                          echo '<input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>';
+                                          echo '</div>';
+                                          echo "</td>";
+                                          echo "<td>";
+                                          echo '<div class="d-flex">';
+                                          echo '<img src="../images/user.png" alt="">';
+                                          echo '<div>';
+                                          echo '<h6>' . $row['name'] . '</h6>';
+                                          echo '</div>';
+                                          echo '</div>';
+                                          echo "</td>";
+                                          echo "<td>";
+                                          echo '<h6>' . $row['email'] . '</h6>';
+                                          echo "</td>";
+                                          echo "<td>";
+                                          echo '<div class="badge badge-opacity-warning">' . $row['Subject'] . '</div>';
+                                          echo "</td>";
+                                          echo "<td>";
+                                          echo '<div>';
+                                          echo '<p class="text-muted p-2 fw-bold">' . $row['Message'] . '</p>';
+                                          echo '</div>';
+                                          echo "</td>";
+                                          echo "</tr>";
+                                        }
+                                      } else {
+                                        echo '<tr><td colspan="5">No messages found.</td></tr>';
+                                      }
+
+                                      mysqli_close($conn);
+                                      ?>
+
 
                                     </tbody>
                                   </table>

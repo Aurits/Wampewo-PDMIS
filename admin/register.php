@@ -2,9 +2,14 @@
 # Include connection
 require_once "./config.php";
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 # Define variables and initialize with empty values
 $username_err = $email_err = $password_err = "";
 $username = $email = $password = "";
+$responsibilities_err =  $skill_err = $age_err =  $village_err = "";
+$responsibilities =  $skill = $age =  $village = "";
 
 # Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -19,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       # Prepare a select statement
       $sql = "SELECT id FROM users WHERE username = ?";
 
-      if ($stmt = mysqli_prepare($link, $sql)) {
+      if ($stmt = mysqli_prepare($conn, $sql)) {
         # Bind variables to the statement as parameters
         mysqli_stmt_bind_param($stmt, "s", $param_username);
 
@@ -56,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       # Prepare a select statement
       $sql = "SELECT id FROM users WHERE email = ?";
 
-      if ($stmt = mysqli_prepare($link, $sql)) {
+      if ($stmt = mysqli_prepare($conn, $sql)) {
         # Bind variables to the statement as parameters
         mysqli_stmt_bind_param($stmt, "s", $param_email);
 
@@ -95,16 +100,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   # Check input errors before inserting data into database
   if (empty($username_err) && empty($email_err) && empty($password_err)) {
     # Prepare an insert statement
-    $sql = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO users(username, email, password, responsibilities, skill, age, village) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-    if ($stmt = mysqli_prepare($link, $sql)) {
+    if ($stmt = mysqli_prepare($conn, $sql)) {
       # Bind varibales to the prepared statement as parameters
-      mysqli_stmt_bind_param($stmt, "sss", $param_username, $param_email, $param_password);
+      mysqli_stmt_bind_param($stmt, "sssssss", $param_username, $param_email, $param_password, $param_responsibilities, $param_skill, $param_age, $param_village);
 
       # Set parameters
       $param_username = $username;
       $param_email = $email;
       $param_password = password_hash($password, PASSWORD_DEFAULT);
+      $param_responsibilities = $_POST['responsibilities'];
+      $param_skill = $_POST['skill'];
+      $param_age = $_POST['age'];
+      $param_village = $_POST['village'];
+
 
       # Execute the prepared statement
       if (mysqli_stmt_execute($stmt)) {
@@ -121,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   # Close connection
-  mysqli_close($link);
+  mysqli_close($conn);
 }
 ?>
 
@@ -165,6 +175,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <label for="password" class="form-label">Password</label>
               <input type="password" class="form-control" name="password" id="password" value="<?= $password; ?>">
               <small class="text-danger"><?= $password_err; ?></small>
+            </div>
+            <div class="mb-3">
+              <h3>Personal Information</h3>
+            </div>
+            <div class="mb-3">
+              <label for="responsibilities" class="form-label">Responsibilities</label>
+              <input type="text" class="form-control" name="responsibilities" id="responsibilities" value="<?= $responsibilities; ?>">
+            </div>
+            <div class="mb-3">
+              <label for="skill" class="form-label">Skill</label>
+              <input type="text" class="form-control" name="skill" id="skill" value="<?= $skill; ?>">
+            </div>
+            <div class="mb-3">
+              <label for="age" class="form-label">Age</label>
+              <input type="number" class="form-control" name="age" id="age" value="<?= $age; ?>">
+            </div>
+            <div class="mb-3">
+              <label for="village" class="form-label">Village</label>
+              <input type="text" class="form-control" name="village" id="village" value="<?= $village; ?>">
             </div>
             <div class="mb-3 form-check">
               <input type="checkbox" class="form-check-input" id="togglePassword">

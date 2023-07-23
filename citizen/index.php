@@ -36,10 +36,10 @@
          </button>
        </div>
        <div>
-         <a class="navbar-brand brand-logo" href="index.html">
+         <a class="navbar-brand brand-logo" href="../index.html">
            <img src="../images/logo1.jpeg" alt="logo" />
          </a>
-         <a class="navbar-brand brand-logo-mini" href="index.html">
+         <a class="navbar-brand brand-logo-mini" href="../index.html">
            <img src="../images/logo1.jpeg" alt="logo" />
          </a>
        </div>
@@ -53,34 +53,52 @@
        </ul>
        <ul class="navbar-nav ms-auto">
          <li class="nav-item dropdown d-none d-lg-block">
-           <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
+           <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> The 7 Pillars </a>
            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
              <a class="dropdown-item py-3">
-               <p class="mb-0 font-weight-medium float-left">Select category</p>
+               <p class="mb-0 font-weight-medium float-left">The 7 Pillars</p>
              </a>
              <div class="dropdown-divider"></div>
              <a class="dropdown-item preview-item">
                <div class="preview-item-content flex-grow py-2">
-                 <p class="preview-subject ellipsis font-weight-medium text-dark">Bootstrap Bundle </p>
-                 <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
+                 <p class="preview-subject ellipsis font-weight-medium text-dark">Production, Storage, Processing and Marketing </p>
+
                </div>
              </a>
              <a class="dropdown-item preview-item">
                <div class="preview-item-content flex-grow py-2">
-                 <p class="preview-subject ellipsis font-weight-medium text-dark">Angular Bundle</p>
-                 <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
+                 <p class="preview-subject ellipsis font-weight-medium text-dark">Infrastracture and Economic Services</p>
+
                </div>
              </a>
              <a class="dropdown-item preview-item">
                <div class="preview-item-content flex-grow py-2">
-                 <p class="preview-subject ellipsis font-weight-medium text-dark">VUE Bundle</p>
-                 <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
+                 <p class="preview-subject ellipsis font-weight-medium text-dark">Financial Inclusion</p>
+
                </div>
              </a>
              <a class="dropdown-item preview-item">
                <div class="preview-item-content flex-grow py-2">
-                 <p class="preview-subject ellipsis font-weight-medium text-dark">React Bundle</p>
-                 <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
+                 <p class="preview-subject ellipsis font-weight-medium text-dark">Social Services</p>
+
+               </div>
+             </a>
+             <a class="dropdown-item preview-item">
+               <div class="preview-item-content flex-grow py-2">
+                 <p class="preview-subject ellipsis font-weight-medium text-dark">Mindset change</p>
+
+               </div>
+             </a>
+             <a class="dropdown-item preview-item">
+               <div class="preview-item-content flex-grow py-2">
+                 <p class="preview-subject ellipsis font-weight-medium text-dark">Parish Based Management...</p>
+
+               </div>
+             </a>
+             <a class="dropdown-item preview-item">
+               <div class="preview-item-content flex-grow py-2">
+                 <p class="preview-subject ellipsis font-weight-medium text-dark">Governance and Administration</p>
+
                </div>
              </a>
            </div>
@@ -107,35 +125,26 @@
            </a>
            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="countDropdown">
              <a class="dropdown-item py-3">
-               <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
-               <span class="badge badge-pill badge-primary float-right">View all</span>
+               <p class="mb-0 font-weight-medium float-left">You have 2 unread mails </p>
+               <span class="badge badge-pill badge-primary float-right">View</span>
              </a>
              <div class="dropdown-divider"></div>
              <a class="dropdown-item preview-item">
                <div class="preview-thumbnail">
-                 <img src="images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
+                 <img src="../images/logo1.jpeg" alt="image" class="img-sm profile-pic">
                </div>
                <div class="preview-item-content flex-grow py-2">
-                 <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
-                 <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                 <p class="preview-subject ellipsis font-weight-medium text-dark">Government of Uganda </p>
+                 <p class="fw-light small-text mb-0"> Launched PDM </p>
                </div>
              </a>
              <a class="dropdown-item preview-item">
                <div class="preview-thumbnail">
-                 <img src="images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
+                 <img src="../images/logo1.jpeg" alt="image" class="img-sm profile-pic">
                </div>
                <div class="preview-item-content flex-grow py-2">
-                 <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
-                 <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
-               </div>
-             </a>
-             <a class="dropdown-item preview-item">
-               <div class="preview-thumbnail">
-                 <img src="images/faces/face1.jpg" alt="image" class="img-sm profile-pic">
-               </div>
-               <div class="preview-item-content flex-grow py-2">
-                 <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
-                 <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                 <p class="preview-subject ellipsis font-weight-medium text-dark">Wampewo Parish </p>
+                 <p class="fw-light small-text mb-0"> Implementing PDM (Wampewo) </p>
                </div>
              </a>
            </div>
@@ -208,18 +217,7 @@
              </ul>
            </div>
          </li>
-         <li class="nav-item">
-           <a class="nav-link" data-bs-toggle="collapse" href="#info" aria-expanded="false" aria-controls="form-elements">
-             <i class="menu-icon mdi mdi-card-text-outline"></i>
-             <span class="menu-title">Demographics</span>
-             <i class="menu-arrow"></i>
-           </a>
-           <div class="collapse" id="info">
-             <ul class="nav flex-column sub-menu">
-               <li class="nav-item"><a class="nav-link" href="./information.php">Information</a></li>
-             </ul>
-           </div>
-         </li>
+
          <li class="nav-item">
            <a class="nav-link" data-bs-toggle="collapse" href="#contact" aria-expanded="false" aria-controls="charts">
              <i class="menu-icon mdi mdi-card-text-outline"></i>

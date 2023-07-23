@@ -36,10 +36,10 @@
          </button>
        </div>
        <div>
-         <a class="navbar-brand brand-logo" href="index.html">
+         <a class="navbar-brand brand-logo" href="../index.html">
            <img src="../images/logo1.jpeg" alt="logo" />
          </a>
-         <a class="navbar-brand brand-logo-mini" href="index.html">
+         <a class="navbar-brand brand-logo-mini" href="../index.html">
            <img src="../images/logo1.jpeg" alt="logo" />
          </a>
        </div>
@@ -53,34 +53,52 @@
        </ul>
        <ul class="navbar-nav ms-auto">
          <li class="nav-item dropdown d-none d-lg-block">
-           <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
+           <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> The 7 Pillars </a>
            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
              <a class="dropdown-item py-3">
-               <p class="mb-0 font-weight-medium float-left">Select category</p>
+               <p class="mb-0 font-weight-medium float-left">The 7 Pillars</p>
              </a>
              <div class="dropdown-divider"></div>
              <a class="dropdown-item preview-item">
                <div class="preview-item-content flex-grow py-2">
-                 <p class="preview-subject ellipsis font-weight-medium text-dark">Bootstrap Bundle </p>
-                 <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
+                 <p class="preview-subject ellipsis font-weight-medium text-dark">Production, Storage, Processing and Marketing </p>
+
                </div>
              </a>
              <a class="dropdown-item preview-item">
                <div class="preview-item-content flex-grow py-2">
-                 <p class="preview-subject ellipsis font-weight-medium text-dark">Angular Bundle</p>
-                 <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
+                 <p class="preview-subject ellipsis font-weight-medium text-dark">Infrastracture and Economic Services</p>
+
                </div>
              </a>
              <a class="dropdown-item preview-item">
                <div class="preview-item-content flex-grow py-2">
-                 <p class="preview-subject ellipsis font-weight-medium text-dark">VUE Bundle</p>
-                 <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
+                 <p class="preview-subject ellipsis font-weight-medium text-dark">Financial Inclusion</p>
+
                </div>
              </a>
              <a class="dropdown-item preview-item">
                <div class="preview-item-content flex-grow py-2">
-                 <p class="preview-subject ellipsis font-weight-medium text-dark">React Bundle</p>
-                 <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
+                 <p class="preview-subject ellipsis font-weight-medium text-dark">Social Services</p>
+
+               </div>
+             </a>
+             <a class="dropdown-item preview-item">
+               <div class="preview-item-content flex-grow py-2">
+                 <p class="preview-subject ellipsis font-weight-medium text-dark">Mindset change</p>
+
+               </div>
+             </a>
+             <a class="dropdown-item preview-item">
+               <div class="preview-item-content flex-grow py-2">
+                 <p class="preview-subject ellipsis font-weight-medium text-dark">Parish Based Management...</p>
+
+               </div>
+             </a>
+             <a class="dropdown-item preview-item">
+               <div class="preview-item-content flex-grow py-2">
+                 <p class="preview-subject ellipsis font-weight-medium text-dark">Governance and Administration</p>
+
                </div>
              </a>
            </div>
@@ -107,35 +125,26 @@
            </a>
            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="countDropdown">
              <a class="dropdown-item py-3">
-               <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
-               <span class="badge badge-pill badge-primary float-right">View all</span>
+               <p class="mb-0 font-weight-medium float-left">You have 2 unread mails </p>
+               <span class="badge badge-pill badge-primary float-right">View</span>
              </a>
              <div class="dropdown-divider"></div>
              <a class="dropdown-item preview-item">
                <div class="preview-thumbnail">
-                 <img src="images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
+                 <img src="../images/logo1.jpeg" alt="image" class="img-sm profile-pic">
                </div>
                <div class="preview-item-content flex-grow py-2">
-                 <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
-                 <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                 <p class="preview-subject ellipsis font-weight-medium text-dark">Government of Uganda </p>
+                 <p class="fw-light small-text mb-0"> Launched PDM </p>
                </div>
              </a>
              <a class="dropdown-item preview-item">
                <div class="preview-thumbnail">
-                 <img src="images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
+                 <img src="../images/logo1.jpeg" alt="image" class="img-sm profile-pic">
                </div>
                <div class="preview-item-content flex-grow py-2">
-                 <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
-                 <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
-               </div>
-             </a>
-             <a class="dropdown-item preview-item">
-               <div class="preview-thumbnail">
-                 <img src="images/faces/face1.jpg" alt="image" class="img-sm profile-pic">
-               </div>
-               <div class="preview-item-content flex-grow py-2">
-                 <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
-                 <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                 <p class="preview-subject ellipsis font-weight-medium text-dark">Wampewo Parish </p>
+                 <p class="fw-light small-text mb-0"> Implementing PDM (Wampewo) </p>
                </div>
              </a>
            </div>
@@ -208,18 +217,7 @@
              </ul>
            </div>
          </li>
-         <li class="nav-item">
-           <a class="nav-link" data-bs-toggle="collapse" href="#info" aria-expanded="false" aria-controls="form-elements">
-             <i class="menu-icon mdi mdi-card-text-outline"></i>
-             <span class="menu-title">Demographics</span>
-             <i class="menu-arrow"></i>
-           </a>
-           <div class="collapse" id="info">
-             <ul class="nav flex-column sub-menu">
-               <li class="nav-item"><a class="nav-link" href="./information.php">Information</a></li>
-             </ul>
-           </div>
-         </li>
+
          <li class="nav-item">
            <a class="nav-link" data-bs-toggle="collapse" href="#contact" aria-expanded="false" aria-controls="charts">
              <i class="menu-icon mdi mdi-card-text-outline"></i>
@@ -265,31 +263,40 @@
         // Include connection
         require_once "./config.php";
 
-        // Function to handle user registration
-        function registerUser($conn)
-        {
-          if (isset($_POST['register'])) {
-            $name = $_POST['name'];
-            $contactInformation = $_POST['contact_information'];
+        ini_set('display_errors', 1);
+        error_reporting(E_ALL);
 
-            // Validate and sanitize user input (you can add more validation as needed)
-            $name = mysqli_real_escape_string($conn, $name);
-            $contactInformation = mysqli_real_escape_string($conn, $contactInformation);
 
-            // Perform the actual registration process and insert data into the database
-            $sql = "INSERT INTO Wampewo_Citizens (Name, Contact_Information) VALUES ('$name', '$contactInformation')";
-            $result = mysqli_query($conn, $sql);
+        if (isset($_POST['register'])) {
+          $name = $_POST['name'];
+          $phone = $_POST['phone'];
+          $email = $_POST['email'];
+          $age = $_POST['age'];
+          $gender = $_POST['gender'];
+          $occupation = $_POST['occupation'];
+          $income = $_POST['income'];
+          $education = $_POST['education'];
+          $village = $_POST['village'];
 
-            if ($result) {
-              // Registration successful, redirect to the profile page
-              header("Location: profile.php");
-              exit();
-            } else {
-              // Registration failed
-              echo '<div class="alert alert-danger h-25" role="alert">Registration failed. Please try again.</div>';
-            }
+
+          // Validate and sanitize user input (you can add more validation as needed)
+          $name = mysqli_real_escape_string($conn, $name);
+
+
+          // Perform the actual registration process and insert data into the database
+          $sql = "INSERT INTO wampewo_citizens (Name, phone, email, age, gender, occupation, income, education, village) VALUES ('$name', '$phone', '$email', '$age', '$gender', '$occupation', '$income', '$education', '$village')";
+          $result = mysqli_query($conn, $sql);
+
+          if ($result) {
+            // Registration successful, redirect to the profile page
+            echo "<script>" . "window.location.href='./';" . "</script>";
+            exit();
+          } else {
+            // Registration failed
+            echo '<div class="alert alert-danger h-25" role="alert">Registration failed. Please try again.</div>';
           }
         }
+
         ?>
 
 
@@ -297,18 +304,46 @@
        <main>
          <div class="container mt-4">
            <!-- Registration form -->
-           <h2>Register as a Citizen</h2>
-           <form method="POST" action="">
+           <h4 class="text-center">Register as a Citizen</h4>
+           <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
              <div class="form-group">
                <label for="name">Name</label>
                <input type="text" class="form-control" id="name" name="name" required>
              </div>
              <div class="form-group">
-               <label for="contact_information">Contact Information</label>
-               <input type="text" class="form-control" id="contact_information" name="contact_information" required>
+               <label for="phone">Phone</label>
+               <input type="text" class="form-control" id="phone" name="phone" required>
+             </div>
+             <div class="form-group">
+               <label for="email">Email</label>
+               <input type="text" class="form-control" id="email" name="email" required>
+             </div>
+             <div class="form-group">
+               <label for="age">Age</label>
+               <input type="number" class="form-control" id="age" name="age" required>
+             </div>
+             <div class="form-group">
+               <label for="gender">Gender (M or F)</label>
+               <input type="text" class="form-control" id="gender" name="gender" required>
+             </div>
+             <div class="form-group">
+               <label for="occupation">Occupation</label>
+               <input type="text" class="form-control" id="occupation" name="occupation" required>
+             </div>
+             <div class="form-group">
+               <label for="income">Income (ugx)</label>
+               <input type="number" class="form-control" id="income" name="income" required>
+             </div>
+             <div class="form-group">
+               <label for="education">Education</label>
+               <input type="text" class="form-control" id="education" name="education" required>
+             </div>
+             <div class="form-group">
+               <label for="village">Village</label>
+               <input type="text" class="form-control" id="village" name="village" required>
              </div>
              <!-- Add other fields if needed -->
-             <button type="submit" class="btn btn-primary" name="register">Register</button>
+             <button type="submit" class="btn btn-primary mb-2" name="register">Register</button>
            </form>
          </div>
        </main>

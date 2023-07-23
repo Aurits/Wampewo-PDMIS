@@ -1,4 +1,5 @@
 <?php
+
 # Initialize the session
 session_start();
 
@@ -35,8 +36,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
   <link rel="shortcut icon" href="../images/favicon.png" />
 
   <script>
-function deleteService(serviceID) {
-    if (confirm("Are you sure you want to delete this service?")) {
+    function deleteService(serviceID) {
+      if (confirm("Are you sure you want to delete this service?")) {
         // Create a hidden form to submit the service ID for deletion
         var form = document.createElement("form");
         form.setAttribute("method", "POST");
@@ -61,14 +62,15 @@ function deleteService(serviceID) {
 
         // Remove the form from the DOM
         document.body.removeChild(form);
+      }
     }
-}
-</script>
+  </script>
 
 </head>
+
 <body>
   <div class="container-scroller">
-    
+
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
@@ -86,7 +88,7 @@ function deleteService(serviceID) {
           </a>
         </div>
       </div>
-      <div class="navbar-menu-wrapper d-flex align-items-top"> 
+      <div class="navbar-menu-wrapper d-flex align-items-top">
         <ul class="navbar-nav">
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
             <h1 class="welcome-text">Wampewo <span class="text-black fw-bold">PDMIS</span></h1>
@@ -95,34 +97,52 @@ function deleteService(serviceID) {
         </ul>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item dropdown d-none d-lg-block">
-            <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
+            <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> The 7 Pillars </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
-              <a class="dropdown-item py-3" >
-                <p class="mb-0 font-weight-medium float-left">Select category</p>
+              <a class="dropdown-item py-3">
+                <p class="mb-0 font-weight-medium float-left">The 7 Pillars</p>
               </a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item preview-item">
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Bootstrap Bundle </p>
-                  <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Production, Storage, Processing and Marketing </p>
+
                 </div>
               </a>
               <a class="dropdown-item preview-item">
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Angular Bundle</p>
-                  <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Infrastracture and Economic Services</p>
+
                 </div>
               </a>
               <a class="dropdown-item preview-item">
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">VUE Bundle</p>
-                  <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Financial Inclusion</p>
+
                 </div>
               </a>
               <a class="dropdown-item preview-item">
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">React Bundle</p>
-                  <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Social Services</p>
+
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Mindset change</p>
+
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Parish Based Management...</p>
+
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Governance and Administration</p>
+
                 </div>
               </a>
             </div>
@@ -135,7 +155,7 @@ function deleteService(serviceID) {
               <input type="text" class="form-control">
             </div>
           </li>
-          
+
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
               <i class="icon-mail icon-lg"></i>
@@ -174,14 +194,14 @@ function deleteService(serviceID) {
               </a>
             </div>
           </li>
-          <li class="nav-item dropdown"> 
+          <li class="nav-item dropdown">
             <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="icon-bell"></i>
               <span class="count"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="countDropdown">
               <a class="dropdown-item py-3">
-                <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
+                <p class="mb-0 font-weight-medium float-left">you have 2 unread mails </p>
                 <span class="badge badge-pill badge-primary float-right">View all</span>
               </a>
               <div class="dropdown-divider"></div>
@@ -190,8 +210,8 @@ function deleteService(serviceID) {
                   <img src="../images/logo2.png" alt="image" class="img-sm profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
-                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Government of Uganda </p>
+                  <p class="fw-light small-text mb-0"> Parish Development Model </p>
                 </div>
               </a>
               <a class="dropdown-item preview-item">
@@ -199,19 +219,11 @@ function deleteService(serviceID) {
                   <img src="../images/logo1.jpeg" alt="image" class="img-sm profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
-                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Wampewo Parish</p>
+                  <p class="fw-light small-text mb-0"> Parish Development Model </p>
                 </div>
               </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <img src="../images/logo1.jpeg" alt="image" class="img-sm profile-pic">
-                </div>
-                <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
-                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
-                </div>
-              </a>
+
             </div>
           </li>
           <li class="nav-item dropdown d-none d-lg-block user-dropdown">
@@ -220,11 +232,11 @@ function deleteService(serviceID) {
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
                 <img class="img-md rounded-circle" src="../images/user.png" alt="Profile image">
-                <p class="mb-1 mt-3 font-weight-semibold">Name Name</p>
-                <p class="fw-light text-muted mb-0">email@gmail.com</p>
+                <p class="mb-1 mt-3 font-weight-semibold">Wampewo Parish</p>
+                <p class="fw-light text-muted mb-0">wampewo@parish.gov</p>
               </div>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
+
+              <a class="dropdown-item" href="communication.php"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
               <a class="dropdown-item" href="./logout.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
             </div>
           </li>
@@ -242,8 +254,12 @@ function deleteService(serviceID) {
         <div id="theme-settings" class="settings-panel">
           <i class="settings-close ti-close"></i>
           <p class="settings-heading">SIDEBAR SKINS</p>
-          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border me-3"></div>Light</div>
-          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border me-3"></div>Dark</div>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme">
+            <div class="img-ss rounded-circle bg-light border me-3"></div>Light
+          </div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme">
+            <div class="img-ss rounded-circle bg-dark border me-3"></div>Dark
+          </div>
           <p class="settings-heading mt-2">HEADER SKINS</p>
           <div class="color-tiles mx-0 px-4">
             <div class="tiles success"></div>
@@ -255,7 +271,7 @@ function deleteService(serviceID) {
           </div>
         </div>
       </div>
-      
+
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
@@ -278,7 +294,7 @@ function deleteService(serviceID) {
               </ul>
             </div>
           </li>
-           <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#posts" aria-expanded="false" aria-controls="form-elements">
               <i class="menu-icon mdi mdi-card-text-outline"></i>
               <span class="menu-title">Posts</span>
@@ -329,7 +345,8 @@ function deleteService(serviceID) {
           </li>
         </ul>
       </nav>
-      <!-- partial -->
+
+
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
@@ -346,134 +363,32 @@ function deleteService(serviceID) {
                   </ul>
                   <div>
                     <div class="btn-wrapper">
-                      
-                      <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
+                      <a href="#" class="btn btn-outline-dark"><i class="icon-printer"></i> Print</a>
                       <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
                     </div>
                   </div>
                 </div>
                 <div class="tab-content tab-content-basic">
-                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview"> 
-                    
+                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
                     <div class="row m-auto">
                       <div class="col-lg-12 d-flex flex-column">
                         <div class="row flex-grow">
                           <div class="col-12 grid-margin stretch-card">
                             <div class="card card-rounded">
                               <div class="card-body">
-                                <div class="d-sm-flex justify-content-between align-items-start">
-                                  <div>
-                                    <h4 class="card-title card-title-dash">Posts</h4>
-                                   <p class="card-subtitle card-subtitle-dash">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                                <hr>
+                                <h4>Add New Post</h4>
+                                <form method="POST" action="">
+                                  <div class="form-group">
+                                    <label for="name">Post Title</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
                                   </div>
-                                  <div>
-                                    
+                                  <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <textarea class="form-control" style="height: 20vh" id="description" name="description" rows="3" required></textarea>
                                   </div>
-                                </div>
-                                
-                               
-
-
-<?php
-# Include connection
-require_once "./config.php";
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-
-// Function to fetch and display services from the database
-function getServices($conn) {
-    $sql = "SELECT * FROM services";
-    $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo '<h4>Service Name: ' . $row['Name'] . '</h4>';
-            echo '<p>Description: ' . $row['Description'] . '</p>';
-            echo '<div class="text-right">'; // Create a div to float the button to the right
-            echo '<button class="btn btn-danger" onclick="deleteService(' . $row['ID'] . ')">Delete</button>';
-            echo '</div>';
-
-        }
-    } else {
-        echo '<p>No services found.</p>';
-    }
-}
-
-// Add new service to the database
-if (isset($_POST['add_service'])) {
-    $name = $_POST['name'];
-    $description = $_POST['description'];
-
-    // Use prepared statement to avoid SQL injection
-    $stmt = $conn->prepare("INSERT INTO services (Name, Description) VALUES (?, ?)");
-    $stmt->bind_param("ss", $name, $description);
-
-    if ($stmt->execute()) {
-        echo '<div class="alert alert-success" role="alert">Service added successfully!</div>';
-    } else {
-        echo '<div class="alert alert-danger" role="alert">Failed to add service. Please try again.</div>';
-    }
-
-    // Close the prepared statement
-    $stmt->close();
-}
-
-// Delete service from the database
-if (isset($_POST['delete_service'])) {
-    $serviceID = $_POST['service_id'];
-
-    // Use prepared statement to avoid SQL injection
-    $stmt = $conn->prepare("DELETE FROM Services WHERE ID = ?");
-    $stmt->bind_param("i", $serviceID);
-
-    if ($stmt->execute()) {
-        echo '<div class="alert alert-success" role="alert">Service deleted successfully!</div>';
-    } else {
-        echo '<div class="alert alert-danger" role="alert">Failed to delete service. Please try again.</div>';
-    }
-
-    // Close the prepared statement
-    $stmt->close();
-}
-?>
-
-
-
-            <div class="card">
-               
-                <div class="card-body">
-                    <?php
-                    // Display existing services
-                    getServices($conn);
-                    ?>
-                    <hr>
-                    <h4>Add New Service</h4>
-                    <form method="POST" action="">
-                        <div class="form-group">
-                            <label for="name">Service Name</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" name="add_service">Add Service</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-<?php
-// Close the database connection
-mysqli_close($conn);
-?>
-
-      
-
-                                 
-                                </div>
+                                  <button type="submit" class="btn btn-secondary" name="add_service">Add</button>
+                                </form>
                               </div>
                             </div>
                           </div>
@@ -484,10 +399,8 @@ mysqli_close($conn);
                               <div class="card-body">
                                 <div class="d-sm-flex justify-content-between align-items-start">
                                   <div>
-                                    <h4 class="card-title card-title-dash">Pending Requests</h4>
-                                   <p class="card-subtitle card-subtitle-dash">You have 50+ new requests</p>
+                                    <h4 class="card-title card-title-dash">POSTS</h4>
                                   </div>
-                                  
                                 </div>
                                 <div class="table-responsive  mt-1">
                                   <table class="table select-table">
@@ -499,80 +412,91 @@ mysqli_close($conn);
                                               <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
                                           </div>
                                         </th>
-                                        <th>Customer</th>
-                                        <th>Company</th>
-                                        <th>Progress</th>
-                                        <th>Status</th>
+                                        <th>Title</th>
+                                        <th style="width: 40vw">Description</th>
+                                        <th>Action</th>
                                       </tr>
                                     </thead>
                                     <tbody>
-                                      <tr>
-                                        <td>
-                                          <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="d-flex ">
-                                            <img src="../images/logo2.png" alt="">
-                                            <div>
-                                              <h6>Brandon Washington</h6>
-                                              <p>Head admin</p>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <h6>Company name 1</h6>
-                                          <p>company type</p>
-                                        </td>
-                                        <td>
-                                          <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                              <p class="text-success">79%</p>
-                                              <p>85/162</p>
-                                            </div>
-                                            <div class="progress progress-md">
-                                              <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td><div class="badge badge-opacity-warning">In progress</div></td>
-                                      </tr>
-                                      <tr>
-                                        <td>
-                                          <div class="form-check form-check-flat mt-0">
-                                            <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="d-flex">
-                                            <img src="../images/logo2.png" alt="">
-                                            <div>
-                                              <h6>Laura Brooks</h6>
-                                              <p>Head admin</p>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <h6>Company name 1</h6>
-                                          <p>company type</p>
-                                        </td>
-                                        <td>
-                                          <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                              <p class="text-success">65%</p>
-                                              <p>85/162</p>
-                                            </div>
-                                            <div class="progress progress-md">
-                                              <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td><div class="badge badge-opacity-warning">In progress</div></td>
-                                      </tr>
-                                      
+                                      <?php
+                                      # Include connection
+                                      require_once "./config.php";
+                                      error_reporting(E_ALL);
+                                      ini_set('display_errors', 1);
+
+                                      // Function to fetch and display services from the database
+                                      function getServices($conn)
+                                      {
+                                        $sql = "SELECT * FROM services";
+                                        $result = mysqli_query($conn, $sql);
+
+                                        if (mysqli_num_rows($result) > 0) {
+                                          while ($row = mysqli_fetch_assoc($result)) {
+                                            echo '<tr>';
+                                            echo '<td>';
+                                            echo '<div class="form-check form-check-flat mt-0">';
+                                            echo '<label class="form-check-label">';
+                                            echo '<input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>';
+                                            echo '</div>';
+                                            echo '</td>';
+                                            echo '<td>';
+                                            echo '<div class="d-flex">';
+                                            echo '<img src="../images/logo2.png" alt="">';
+                                            echo '<div>';
+                                            echo '<h6>' . $row['Name'] . '</h6>';
+                                            echo '</div>';
+                                            echo '</div>';
+                                            echo '</td>';
+                                            echo '<td class="w-25">';
+                                            echo '<h6>' . $row['Description'] . '</h6>';
+                                            echo '</td>';
+                                            echo '<td>';
+                                            echo '<button class="btn btn-danger" onclick="deleteService(' . $row['ID'] . ')">Delete</button>';
+                                            echo '</td>';
+                                            echo '</tr>';
+                                          }
+                                        } else {
+                                          echo '<tr><td colspan="4">No services found.</td></tr>';
+                                        }
+                                      }
+
+                                      // Add new service to the database
+                                      if (isset($_POST['add_service'])) {
+                                        $name = $_POST['name'];
+                                        $description = $_POST['description'];
+
+                                        // Use prepared statement to avoid SQL injection
+                                        $stmt = $conn->prepare("INSERT INTO services (Name, Description) VALUES (?, ?)");
+                                        $stmt->bind_param("ss", $name, $description);
+
+                                        if ($stmt->execute()) {
+                                          echo '<div class="alert alert-success" role="alert">Service added successfully!</div>';
+                                        } else {
+                                          echo '<div class="alert alert-danger" role="alert">Failed to add service. Please try again.</div>';
+                                        }
+
+                                        // Close the prepared statement
+                                        $stmt->close();
+                                      }
+
+                                      // Delete service from the database
+                                      if (isset($_POST['delete_service'])) {
+                                        $serviceID = $_POST['service_id'];
+
+                                        // Use prepared statement to avoid SQL injection
+                                        $stmt = $conn->prepare("DELETE FROM services WHERE ID = ?");
+                                        $stmt->bind_param("i", $serviceID);
+
+                                        if ($stmt->execute()) {
+                                          echo '<div class="alert alert-success" role="alert">Service deleted successfully!</div>';
+                                        } else {
+                                          echo '<div class="alert alert-danger" role="alert">Failed to delete service. Please try again.</div>';
+                                        }
+                                      }
+                                      ?>
+                                      <?php
+                                      getServices($conn);
+                                      ?>
                                     </tbody>
                                   </table>
                                 </div>
@@ -588,22 +512,48 @@ mysqli_close($conn);
             </div>
           </div>
         </div>
-      <!-- content-wrapper ends -->
-
-      <footer class="footer">
-        <div class="d-sm-flex justify-content-center justify-content-sm-between">
-          <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampewo Parish)</span>
-          <img class="m-auto" width="90px" height="50px" src="../images/logo2.png" alt="image">
-          <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
-        </div>
-      </footer>
-        <!-- partial -->
       </div>
-      <!-- main-panel ends -->
     </div>
-    <!-- page-body-wrapper ends -->
+    <!-- content-wrapper ends -->
+
+
+
+    <footer class="footer">
+      <div class="d-sm-flex justify-content-center justify-content-sm-between">
+        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampewo Parish)</span>
+        <img class="m-auto" width="90px" height="50px" src="../images/logo2.png" alt="image">
+        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
+      </div>
+    </footer>
+    <!-- partial -->
+  </div>
+  <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
+
+  <!-- Add a function to delete a service using AJAX -->
+  <!-- <script>
+function deleteService(serviceId) {
+  if (confirm("Are you sure you want to delete this service?")) {
+    // Use AJAX to send a request to the server to delete the service
+    $.ajax({
+      type: "POST",
+      url: "delete_service.php", // Replace with the actual PHP script to handle the deletion
+      data: { id: serviceId },
+      success: function (response) {
+        // If the deletion is successful, reload the page to update the service list
+        location.reload();
+      },
+      error: function (xhr, status, error) {
+        console.error(xhr.responseText);
+        alert("Failed to delete service. Please try again.");
+      },
+    });
+  }
+}
+</script> -->
 
   <!-- plugins:js -->
   <script src="../vendors/js/vendor.bundle.base.js"></script>
@@ -629,5 +579,3 @@ mysqli_close($conn);
 </body>
 
 </html>
-
-

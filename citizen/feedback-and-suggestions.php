@@ -1,3 +1,37 @@
+<?php
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // Get form data
+  $name = "Anonymous";
+  $email = "Anonymous";
+  $subject = $_POST["feedback_type"];
+  $message = $_POST["message"];
+
+  # Include connection
+  require_once "./config.php";
+
+  ini_set('display_errors', 1);
+  error_reporting(E_ALL);
+
+
+  // Prepare and execute the SQL query to insert data into the Contact table
+  $stmt = $conn->prepare("INSERT INTO messages (name, email, subject, message) VALUES (?, ?, ?, ?)");
+  $stmt->bind_param("ssss", $name, $email, $subject, $message);
+
+  if ($stmt->execute()) {
+    echo "<p class='bg-success'>Contact message sent successfully!</p>";
+    echo "<script>" . "window.location.href='../';" . "</script>";
+  } else {
+    echo "Error: " . $stmt->error;
+  }
+
+  // Close the prepared statement and connection
+  $stmt->close();
+  $conn->close();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,10 +70,10 @@
         </button>
       </div>
       <div>
-        <a class="navbar-brand brand-logo" href="index.html">
+        <a class="navbar-brand brand-logo" href="../index.html">
           <img src="../images/logo1.jpeg" alt="logo" />
         </a>
-        <a class="navbar-brand brand-logo-mini" href="index.html">
+        <a class="navbar-brand brand-logo-mini" href="../index.html">
           <img src="../images/logo1.jpeg" alt="logo" />
         </a>
       </div>
@@ -53,34 +87,52 @@
       </ul>
       <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown d-none d-lg-block">
-          <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
+          <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> The 7 Pillars </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
             <a class="dropdown-item py-3">
-              <p class="mb-0 font-weight-medium float-left">Select category</p>
+              <p class="mb-0 font-weight-medium float-left">The 7 Pillars</p>
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item preview-item">
               <div class="preview-item-content flex-grow py-2">
-                <p class="preview-subject ellipsis font-weight-medium text-dark">Bootstrap Bundle </p>
-                <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
+                <p class="preview-subject ellipsis font-weight-medium text-dark">Production, Storage, Processing and Marketing </p>
+
               </div>
             </a>
             <a class="dropdown-item preview-item">
               <div class="preview-item-content flex-grow py-2">
-                <p class="preview-subject ellipsis font-weight-medium text-dark">Angular Bundle</p>
-                <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
+                <p class="preview-subject ellipsis font-weight-medium text-dark">Infrastracture and Economic Services</p>
+
               </div>
             </a>
             <a class="dropdown-item preview-item">
               <div class="preview-item-content flex-grow py-2">
-                <p class="preview-subject ellipsis font-weight-medium text-dark">VUE Bundle</p>
-                <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
+                <p class="preview-subject ellipsis font-weight-medium text-dark">Financial Inclusion</p>
+
               </div>
             </a>
             <a class="dropdown-item preview-item">
               <div class="preview-item-content flex-grow py-2">
-                <p class="preview-subject ellipsis font-weight-medium text-dark">React Bundle</p>
-                <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
+                <p class="preview-subject ellipsis font-weight-medium text-dark">Social Services</p>
+
+              </div>
+            </a>
+            <a class="dropdown-item preview-item">
+              <div class="preview-item-content flex-grow py-2">
+                <p class="preview-subject ellipsis font-weight-medium text-dark">Mindset change</p>
+
+              </div>
+            </a>
+            <a class="dropdown-item preview-item">
+              <div class="preview-item-content flex-grow py-2">
+                <p class="preview-subject ellipsis font-weight-medium text-dark">Parish Based Management...</p>
+
+              </div>
+            </a>
+            <a class="dropdown-item preview-item">
+              <div class="preview-item-content flex-grow py-2">
+                <p class="preview-subject ellipsis font-weight-medium text-dark">Governance and Administration</p>
+
               </div>
             </a>
           </div>
@@ -107,35 +159,26 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="countDropdown">
             <a class="dropdown-item py-3">
-              <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
-              <span class="badge badge-pill badge-primary float-right">View all</span>
+              <p class="mb-0 font-weight-medium float-left">You have 2 unread mails </p>
+              <span class="badge badge-pill badge-primary float-right">View</span>
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item preview-item">
               <div class="preview-thumbnail">
-                <img src="images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
+                <img src="../images/logo1.jpeg" alt="image" class="img-sm profile-pic">
               </div>
               <div class="preview-item-content flex-grow py-2">
-                <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
-                <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                <p class="preview-subject ellipsis font-weight-medium text-dark">Government of Uganda </p>
+                <p class="fw-light small-text mb-0"> Launched PDM </p>
               </div>
             </a>
             <a class="dropdown-item preview-item">
               <div class="preview-thumbnail">
-                <img src="images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
+                <img src="../images/logo1.jpeg" alt="image" class="img-sm profile-pic">
               </div>
               <div class="preview-item-content flex-grow py-2">
-                <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
-                <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
-              </div>
-            </a>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <img src="images/faces/face1.jpg" alt="image" class="img-sm profile-pic">
-              </div>
-              <div class="preview-item-content flex-grow py-2">
-                <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
-                <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                <p class="preview-subject ellipsis font-weight-medium text-dark">Wampewo Parish </p>
+                <p class="fw-light small-text mb-0"> Implementing PDM (Wampewo) </p>
               </div>
             </a>
           </div>
@@ -208,18 +251,7 @@
             </ul>
           </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#info" aria-expanded="false" aria-controls="form-elements">
-            <i class="menu-icon mdi mdi-card-text-outline"></i>
-            <span class="menu-title">Demographics</span>
-            <i class="menu-arrow"></i>
-          </a>
-          <div class="collapse" id="info">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item"><a class="nav-link" href="./information.php">Information</a></li>
-            </ul>
-          </div>
-        </li>
+
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" href="#contact" aria-expanded="false" aria-controls="charts">
             <i class="menu-icon mdi mdi-card-text-outline"></i>
@@ -262,42 +294,18 @@
     <div class="main-panel">
 
 
+      <!-- partial -->
+      <div class="main-panel d-flex align-self-center justify-content-center">
 
 
 
-      <?php
-      # Include connection
-      require_once "./config.php";
+        <div class=" container col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 w-75">
+          <p class="text-center text-muted">Fill the form below</p>
+          <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+          <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+          <!-- NOTE: To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+          <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" novalidate>
 
-      // Handle form submission
-      if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $feedback_type = $_POST['feedback_type'];
-        $feedback_message = $_POST['feedback_message'];
-
-        // Insert feedback data into the database
-        $sql = "INSERT INTO Feedback (Feedback_Type, Message) VALUES ('$feedback_type', '$feedback_message')";
-        $result = mysqli_query($conn, $sql);
-
-        if ($result) {
-          // Feedback submitted successfully
-          $feedback_msg = "Thank you for your feedback!";
-        } else {
-          // Failed to submit feedback
-          $feedback_msg = "Failed to submit feedback. Please try again.";
-        }
-      }
-      ?>
-
-
-      <main>
-        <div class="container">
-          <h1>Feedback and Suggestions</h1>
-          <?php
-          if (isset($feedback_msg)) {
-            echo "<div class='alert alert-info'>$feedback_msg</div>";
-          }
-          ?>
-          <form method="POST" action="">
             <div class="form-group">
               <label for="feedback_type">Feedback Type:</label>
               <select name="feedback_type" id="feedback_type" required>
@@ -307,20 +315,22 @@
                 <option value="Complaint">Complaint</option>
               </select>
             </div>
-            <div class="form-group">
-              <label for="feedback_message">Message:</label>
-              <textarea name="feedback_message" id="feedback_message" rows="4" required></textarea>
+            <div class="row control-group">
+              <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label>Message</label>
+                <textarea style="height: 22vh" rows="10" class="form-control" placeholder="Message" name="message" required data-validation-required-message="Please enter a message."></textarea>
+                <p class="help-block text-danger"></p>
+              </div>
             </div>
-            <button type="submit">Submit Feedback</button>
+            <br>
+            <div id="success"></div>
+            <div class="row">
+              <div class="form-group col-xs-12">
+                <input type="submit" class="btn btn-primary">
+              </div>
+            </div>
           </form>
         </div>
-      </main>
-
-
-      <?php
-      // Close the database connection
-      mysqli_close($conn);
-      ?>
 
 
 
@@ -328,6 +338,7 @@
 
 
 
+      </div>
 
 
       <!-- content-wrapper ends -->
