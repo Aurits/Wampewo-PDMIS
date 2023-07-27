@@ -22,6 +22,256 @@
   <link rel="stylesheet" href="../css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../images/favicon.png" />
+  <style type="text/css">
+    body {
+      margin-top: 20px;
+      background: #eee;
+    }
+
+    .white-bg {
+      background-color: #ffffff;
+    }
+
+    .page-heading {
+      border-top: 0;
+      padding: 0 10px 20px 10px;
+    }
+
+    .forum-post-container .media {
+      margin: 10px 10px 10px 10px;
+      padding: 20px 10px 20px 10px;
+      border-bottom: 1px solid #f1f1f1;
+    }
+
+    .forum-avatar {
+      float: left;
+      margin-right: 20px;
+      text-align: center;
+      width: 110px;
+    }
+
+    .forum-avatar .img-circle {
+      height: 48px;
+      width: 48px;
+    }
+
+    .author-info {
+      color: #676a6c;
+      font-size: 11px;
+      margin-top: 5px;
+      text-align: center;
+    }
+
+    .forum-post-info {
+      padding: 9px 12px 6px 12px;
+      background: #f9f9f9;
+      border: 1px solid #f1f1f1;
+    }
+
+    .media-body>.media {
+      background: #f9f9f9;
+      border-radius: 3px;
+      border: 1px solid #f1f1f1;
+    }
+
+    .forum-post-container .media-body .photos {
+      margin: 10px 0;
+    }
+
+    .forum-photo {
+      max-width: 140px;
+      border-radius: 3px;
+    }
+
+    .media-body>.media .forum-avatar {
+      width: 70px;
+      margin-right: 10px;
+    }
+
+    .media-body>.media .forum-avatar .img-circle {
+      height: 38px;
+      width: 38px;
+    }
+
+    .mid-icon {
+      font-size: 66px;
+    }
+
+    .forum-item {
+      margin: 10px 0;
+      padding: 10px 0 20px;
+      border-bottom: 1px solid #f1f1f1;
+    }
+
+    .views-number {
+      font-size: 24px;
+      line-height: 18px;
+      font-weight: 400;
+    }
+
+    .forum-container,
+    .forum-post-container {
+      padding: 30px !important;
+    }
+
+    .forum-item small {
+      color: #999;
+    }
+
+    .forum-item .forum-sub-title {
+      color: #999;
+      margin-left: 50px;
+    }
+
+    .forum-title {
+      margin: 15px 0 15px 0;
+    }
+
+    .forum-info {
+      text-align: center;
+    }
+
+    .forum-desc {
+      color: #999;
+    }
+
+    .forum-icon {
+      float: left;
+      width: 30px;
+      margin-right: 20px;
+      text-align: center;
+    }
+
+    a.forum-item-title {
+      color: inherit;
+      display: block;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    a.forum-item-title:hover {
+      color: inherit;
+    }
+
+    .forum-icon .fa {
+      font-size: 30px;
+      margin-top: 8px;
+      color: #9b9b9b;
+    }
+
+    .forum-item.active .fa {
+      color: #1ab394;
+    }
+
+    .forum-item.active a.forum-item-title {
+      color: #1ab394;
+    }
+
+    @media (max-width: 992px) {
+      .forum-info {
+        margin: 15px 0 10px 0;
+        /* Comment this is you want to show forum info in small devices */
+        display: none;
+      }
+
+      .forum-desc {
+        float: none !important;
+      }
+    }
+
+
+
+
+
+    .ibox {
+      clear: both;
+      margin-bottom: 25px;
+      margin-top: 0;
+      padding: 0;
+    }
+
+    .ibox.collapsed .ibox-content {
+      display: none;
+    }
+
+    .ibox.collapsed .fa.fa-chevron-up:before {
+      content: "\f078";
+    }
+
+    .ibox.collapsed .fa.fa-chevron-down:before {
+      content: "\f077";
+    }
+
+    .ibox:after,
+    .ibox:before {
+      display: table;
+    }
+
+    .ibox-title {
+      -moz-border-bottom-colors: none;
+      -moz-border-left-colors: none;
+      -moz-border-right-colors: none;
+      -moz-border-top-colors: none;
+      background-color: #ffffff;
+      border-color: #e7eaec;
+      border-image: none;
+      border-style: solid solid none;
+      border-width: 3px 0 0;
+      color: inherit;
+      margin-bottom: 0;
+      padding: 14px 15px 7px;
+      min-height: 48px;
+    }
+
+    .ibox-content {
+      background-color: #ffffff;
+      color: inherit;
+      padding: 15px 20px 20px 20px;
+      border-color: #e7eaec;
+      border-image: none;
+      border-style: solid solid none;
+      border-width: 1px 0;
+    }
+
+    .ibox-footer {
+      color: inherit;
+      border-top: 1px solid #e7eaec;
+      font-size: 90%;
+      background: #ffffff;
+      padding: 10px 15px;
+    }
+
+    .message-input {
+      height: 90px !important;
+    }
+
+    .form-control,
+    .single-line {
+      background-color: #FFFFFF;
+      background-image: none;
+      border: 1px solid #e5e6e7;
+      border-radius: 1px;
+      color: inherit;
+      display: block;
+      padding: 6px 12px;
+      transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .text-navy {
+      color: #1ab394;
+    }
+
+    .mid-icon {
+      font-size: 66px !important;
+    }
+
+    .m-b-sm {
+      margin-bottom: 10px;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -259,55 +509,115 @@
     <!-- partial -->
     <div class="main-panel">
 
-
-
-
-      <?php
-      # Include connection
-      require_once "./config.php";
-      ?>
-
-
-
       <main>
         <div class="container">
-          <h1>Discussion Forums</h1>
-          <!-- Add a section for displaying existing forum topics and discussions -->
-          <h2>Forum Topics</h2>
-          <ul>
-            <!-- Fetch and display dynamic data for forum topics fetched from the database -->
-            <?php
-            // Fetch and display forum topics from the database
-            $sql = "SELECT * FROM Forum_Topics";
+          <div class="ibox-content m-b-sm border-bottom">
+            <div class="p-xs">
+              <div class="pull-left m-r-md">
+                <i class="fa fa-globe text-navy mid-icon"></i>
+              </div>
+              <h2>Welcome to our forum</h2>
+
+            </div>
+          </div>
+
+
+          <?php
+          # Include connection
+          require_once "./config.php";
+
+          // Function to fetch and display forum posts from the database
+          function displayForumPosts($conn)
+          {
+            // Query to fetch forum posts from the database
+            $sql = "SELECT * FROM forum_posts";
             $result = mysqli_query($conn, $sql);
+
             if (mysqli_num_rows($result) > 0) {
+              echo '<div class="forum-title">';
+              echo '<div class="pull-right forum-desc">';
+              echo '<small>Total posts: ' . mysqli_num_rows($result) . '</small>';
+              echo '</div>';
+
+              echo '</div>';
+              echo '<div class="table-responsive">';
+              echo '<table class="table">';
+              echo '<thead>';
+              echo '<tr>';
+              echo '<th>Topic</th>';
+              echo '<th>Subject</th>';
+              echo '</tr>';
+              echo '</thead>';
+              echo '<tbody>';
+
               while ($row = mysqli_fetch_assoc($result)) {
-                echo "<li><a href='#'>" . $row['Topic_Title'] . "</a></li>";
+                echo '<tr>';
+                echo '<td><a href="/">' . $row['Topic_Title'] . '</a></td>';
+                echo '<td>' . $row['Subject'] . '</td>';
+                echo '</tr>';
               }
+
+              echo '</tbody>';
+              echo '</table>';
+              echo '</div>';
             } else {
-              echo "<li>No forum topics found.</li>";
+              echo '<p>No forum posts found.</p>';
             }
-            ?>
-          </ul>
-          <!-- Add a form to allow users to start new discussions -->
-          <h2>Start a New Discussion</h2>
-          <form action="" method="POST">
-            <label for="topic_title">Topic Title:</label>
-            <input type="text" name="topic_title" id="topic_title" required>
-            <br>
-            <label for="topic_message">Message:</label>
-            <textarea name="topic_message" id="topic_message" rows="4" required></textarea>
-            <br>
-            <button type="submit">Submit</button>
-          </form>
-          <!-- Implement PHP script to handle form submission and store data in the database -->
+          }
+
+          // Display forum posts in the table
+          displayForumPosts($conn);
+
+          // Check if the form was submitted
+          if (isset($_POST['submit'])) {
+            // Get form data
+            $topicTitle = $_POST['topic_title'];
+            $subject = $_POST['topic_subject'];
+
+            // Insert the new forum post into the database
+            $sql = "INSERT INTO forum_posts (Topic_Title, Subject) VALUES ('$topicTitle', '$subject')";
+            if (mysqli_query($conn, $sql)) {
+              echo '<div class="alert alert-success" role="alert">New post added successfully!</div>';
+            } else {
+              echo '<div class="alert alert-danger" role="alert">Failed to add new post. Please try again.</div>';
+            }
+          }
+
+          // Close the database connection
+          mysqli_close($conn);
+          ?>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="wrapper wrapper-content animated fadeInRight">
+
+                <div class="ibox-content forum-container">
+                  <!-- Form to allow users to start new discussions -->
+                  <h2>Start a New Discussion</h2>
+                  <form action="" method="POST">
+                    <div class="form-group">
+                      <label for="topic_title">Topic Title:</label>
+                      <input type="text" name="topic_title" id="topic_title" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="topic_subject">Subject:</label>
+                      <textarea name="topic_subject" id="topic_subject" class="form-control" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                  <!-- End of input group -->
+                </div>
+
+              </div>
+            </div>
+          </div>
         </div>
       </main>
 
-      <?php
-      // Close the database connection
-      mysqli_close($conn);
-      ?>
+
+
+
+
 
 
 

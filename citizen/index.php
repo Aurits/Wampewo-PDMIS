@@ -22,6 +22,16 @@
    <link rel="stylesheet" href="../css/vertical-layout-light/style.css">
    <!-- endinject -->
    <link rel="shortcut icon" href="../images/favicon.png" />
+
+   <style>
+     .service-card {
+       background-color: #fff;
+       border-radius: 10px;
+       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+       padding: 20px;
+       margin-bottom: 20px;
+     }
+   </style>
  </head>
 
  <body>
@@ -259,45 +269,56 @@
      <!-- partial -->
      <div class="main-panel">
 
-
-
        <?php
-
+        # Include connection
         require_once "./config.php";
         ?>
+       <main>
+         <div class="container">
+           <h1 class="" style="overflow: hidden; line-height: 2px">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h1>
+           <div class="row">
+             <?php
+              function getServices($conn)
+              {
+                $sql = "SELECT * FROM services";
+                $result = mysqli_query($conn, $sql);
 
-       <div class="content-wrapper">
-         <!-- Add featured services, success stories, and upcoming events here -->
-         <h2>Latest News and Updates</h2>
+                if (mysqli_num_rows($result) > 0) {
+                  while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<div class="col-md-4">';
+                    echo '<div class="service-card">';
+                    echo '<div class="">';
+                    echo '<img src="../images/logo2.png" alt="">';
+                    echo '<div><br>';
+                    echo '<h6>' . $row['Name'] . '</h6>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '<h6 class="mt-2">' . $row['Description'] . '</h6>';
 
-         <?php
-          // Function to fetch and display latest news and updates from the database
-          function getLatestNews($conn)
-          {
-            $sql = "SELECT * FROM users LIMIT 5";
-            $result = mysqli_query($conn, $sql);
-
-            if (mysqli_num_rows($result) > 0) {
-              while ($row = mysqli_fetch_assoc($result)) {
-                echo '<h4>' . $row['email'] . '</h4>';
-                echo '<p>' . $row['username'] . '</p>';
-                echo '<hr>';
+                    echo '<a href="#" class="btn btn-primary mt-3">Learn More</a>'; // CTA button
+                    echo '</div>';
+                    echo '</div>';
+                  }
+                } else {
+                  echo '<div class="col-md-12">';
+                  echo '<p>No services found.</p>';
+                  echo '</div>';
+                }
               }
-            } else {
-              echo '<p>No news and updates available.</p>';
-            }
-          }
 
-          // Display latest news and updates
-          getLatestNews($conn);
-          ?>
-
-       </div>
+              // Display services in cards using grid
+              getServices($conn);
+              ?>
+           </div>
+         </div>
+       </main>
 
        <?php
         // Close the database connection
         mysqli_close($conn);
         ?>
+
+
 
 
 
