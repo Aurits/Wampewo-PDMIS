@@ -319,6 +319,18 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
             </div>
           </li>
           <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#citizens" aria-expanded="false" aria-controls="tables">
+              <i class="menu-icon mdi mdi-table"></i>
+              <span class="menu-title">Citizens</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="citizens">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="./citizens.php">Citizens</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#messages" aria-expanded="false" aria-controls="tables">
               <i class="menu-icon mdi mdi-table"></i>
               <span class="menu-title">Messages</span>
@@ -357,15 +369,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                     <li class="nav-item">
                       <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Posts</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link border-0" id="more-tab" data-bs-toggle="tab" href="#more" role="tab" aria-selected="false">More</a>
-                    </li>
+
                   </ul>
                   <div>
-                    <div class="btn-wrapper">
-                      <a href="#" class="btn btn-outline-dark"><i class="icon-printer"></i> Print</a>
-                      <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
-                    </div>
+
                   </div>
                 </div>
                 <div class="tab-content tab-content-basic">
@@ -522,7 +529,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
     <footer class="footer">
       <div class="d-sm-flex justify-content-center justify-content-sm-between">
         <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampewo Parish)</span>
-        <img class="m-auto" width="90px" height="50px" src="../images/logo2.png" alt="image">
+
         <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
       </div>
     </footer>

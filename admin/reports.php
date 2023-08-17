@@ -9,7 +9,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +25,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
   <link rel="stylesheet" href="../vendors/simple-line-icons/css/simple-line-icons.css">
   <link rel="stylesheet" href="../vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script> 
   <!-- Plugin css for this page -->
   <link rel="stylesheet" href="../vendors/datatables.net-bs4/dataTables.bootstrap4.css">
   <link rel="stylesheet" href="../js/select.dataTables.min.css">
@@ -287,6 +287,18 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
             </div>
           </li>
           <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#citizens" aria-expanded="false" aria-controls="tables">
+              <i class="menu-icon mdi mdi-table"></i>
+              <span class="menu-title">Citizens</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="citizens">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="./citizens.php">Citizens</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#messages" aria-expanded="false" aria-controls="tables">
               <i class="menu-icon mdi mdi-table"></i>
               <span class="menu-title">Messages</span>
@@ -324,17 +336,9 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                     <li class="nav-item">
                       <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link border-0" id="more-tab" data-bs-toggle="tab" href="#more" role="tab" aria-selected="false">More</a>
-                    </li>
-                  </ul>
-                  <div>
-                    <div class="btn-wrapper">
 
-                      <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
-                      <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
-                    </div>
-                  </div>
+                  </ul>
+
                 </div>
                 <div class="tab-content tab-content-basic">
                   <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
@@ -414,195 +418,201 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                       </div>
                     </div>
                   </div>
-                  <div class="row m-auto">
-                    <div class="col-lg-12 d-flex flex-column">
-                      <div class="row flex-grow">
-                        <div class="col-12 grid-margin stretch-card">
-                          <div class="card card-rounded">
-                            <div class="card-body">
-                              <div class="d-sm-flex justify-content-between align-items-start">
-                                <div>
-                                  <h4 class="card-title card-title-dash">Investment</h4>
+      <?php
+      // Include connection
+                    require_once "./config.php";
 
-                                </div>
-                                <div>
+                    ini_set('display_errors', 1);
+                    error_reporting(E_ALL);
 
-                                </div>
-                              </div>
-                              <div class="d-sm-flex align-items-center mt-1 justify-content-between">
-                                <div class="d-sm-flex align-items-center mt-4 justify-content-between">
-                                  <h2 class="me-2 fw-bold">32Billion</h2>
-                                  <h4 class="me-2">UGX</h4>
+      // Query to get citizen group distribution by village
+      $query = "SELECT village, COUNT(*) as count FROM citizen_groups GROUP BY village";
+      $result = mysqli_query($conn, $query);
+      $villages = array();
+      $counts = array();
+      while ($row = mysqli_fetch_assoc($result)) {
+        $villages[] = $row['village'];
+        $counts[] = $row['count'];
+      }
 
-                                </div>
-                                <div class="me-3">
-                                  <div id="marketing-overview-legend"></div>
-                                </div>
-                              </div>
-                              <div class="chartjs-bar-wrapper mt-3">
-                                <canvas id="marketingOverview"></canvas>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+      // Similarly, fetch data for other charts here
 
-                        <div class="row flex-grow">
-                          <div class="col-md-6 col-lg-6 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body card-rounded">
-                                <h4 class="card-title  card-title-dash">Recent Events</h4>
-                                <div class="list align-items-center border-bottom py-2">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-2 font-weight-medium">
-                                      Change in Directors
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                      <div class="d-flex align-items-center">
-                                        <i class="mdi mdi-calendar text-muted me-1"></i>
-                                        <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="list align-items-center border-bottom py-2">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-2 font-weight-medium">
-                                      Other Events
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                      <div class="d-flex align-items-center">
-                                        <i class="mdi mdi-calendar text-muted me-1"></i>
-                                        <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="list align-items-center border-bottom py-2">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-2 font-weight-medium">
-                                      Quarterly Report
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                      <div class="d-flex align-items-center">
-                                        <i class="mdi mdi-calendar text-muted me-1"></i>
-                                        <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="list align-items-center border-bottom py-2">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-2 font-weight-medium">
-                                      Change in Directors
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                      <div class="d-flex align-items-center">
-                                        <i class="mdi mdi-calendar text-muted me-1"></i>
-                                        <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
+      ?>
 
-                                <div class="list align-items-center pt-3">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-0">
-                                      <a href="#" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6 col-lg-6 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body">
-                                <div class="d-flex align-items-center justify-content-between mb-3">
-                                  <h4 class="card-title card-title-dash">Activities</h4>
-                                  <p class="mb-0">20 finished, 5 remaining</p>
-                                </div>
-                                <ul class="bullet-line-list">
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Ben Tossell</span> assign you a task</div>
-                                      <p>Just now</p>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Oliver Noah</span> assign you a task</div>
-                                      <p>1h</p>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Jack William</span> assign you a task</div>
-                                      <p>1h</p>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Leo Lucas</span> assign you a task</div>
-                                      <p>1h</p>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Thomas Henry</span> assign you a task</div>
-                                      <p>1h</p>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Ben Tossell</span> assign you a task</div>
-                                      <p>1h</p>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="d-flex justify-content-between">
-                                      <div><span class="text-light-green">Ben Tossell</span> assign you a task</div>
-                                      <p>1h</p>
-                                    </div>
-                                  </li>
-                                </ul>
-                                <div class="list align-items-center pt-3">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-0">
-                                      <a href="#" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+    <?php
+    // Include connection
+    require_once "./config.php";
+
+    // Query to get the count of citizen groups by village
+    $query = "SELECT village, COUNT(*) as count FROM citizen_groups GROUP BY village";
+    $result = mysqli_query($conn, $query);
+    $villages = array();
+    $counts = array();
+    while ($row = mysqli_fetch_assoc($result)) {
+      $villages[] = $row['village'];
+      $counts[] = $row['count'];
+    }
+
+    ?>
+    <?php
+    // Include connection
+                    require_once "./config.php";
+
+                    ini_set('display_errors', 1);
+                    error_reporting(E_ALL);
+    // Query to get funding amount by month for the current year
+    $query = "SELECT MONTH(FROM_UNIXTIME(timestamp)) as month, SUM(Amount_for_Funding) as total_amount FROM citizen_groups WHERE YEAR(FROM_UNIXTIME(timestamp)) = YEAR(NOW()) GROUP BY month";
+    $result = mysqli_query($conn, $query);
+    $months = array();
+    $amounts = array();
+    while ($row = mysqli_fetch_assoc($result)) {
+      $months[] = date("F", mktime(0, 0, 0, $row['month'], 1));
+      $amounts[] = $row['total_amount'];
+    }
+
+    ?>
+
+
+
+
+
+
+ <div class="row">
+                    <div style="height: 20vh" class=" d-flex flex-column h-25">
+                     
+                        <!-- Chart 1: Citizen Group Distribution by Village (Pie Chart) -->
+                        <canvas id="chart1"></canvas>
+                      
+                      <!-- Other charts go here -->
                     </div>
                   </div>
+                  
+                  <!-- More Charts Section -->
+                  <div class="row">
+                    <div class="col-md-4 col-4">
+                      <!-- Chart 2: Funding Amount by Month (Bar Chart) -->
+                      <canvas id="chart2"></canvas>
+                    </div>
+                    <div class="col-md-4 col-4">
+                      <!-- Chart 3: Another Chart Here -->
+                      <canvas id="chart3"></canvas>
+                    </div>
+                    <!-- Add more columns or charts as needed -->
+                  </div>
+                  
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- content-wrapper ends -->
-
-        <footer class="footer">
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampewo Parish)</span>
-            <img class="m-auto" width="90px" height="50px" src="../images/logo2.png" alt="image">
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
-          </div>
-        </footer>
-        <!-- partial -->
       </div>
-      <!-- main-panel ends -->
     </div>
-    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- content-wrapper ends -->
+
+  <footer class="footer">
+    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+      <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampewo Parish)</span>
+
+      <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
+    </div>
+  </footer>
+  <!-- partial -->
+  </div>
+  <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
 
   <!-- plugins:js -->
   <script src="../vendors/js/vendor.bundle.base.js"></script>
+
+
+
+
+<!-- Include your CSS links here -->
+<!-- Include your JavaScript links here -->
+
+<script>
+  // Chart 1: Citizen Group Distribution by Village (Pie Chart)
+  var ctx1 = document.getElementById('chart1').getContext('2d');
+  var chart1 = new Chart(ctx1, {
+    type: 'pie',
+    data: {
+      labels: <?php echo json_encode($villages); ?>,
+      datasets: [{
+        data: <?php echo json_encode($counts); ?>,
+        backgroundColor: [
+          'red',
+          'blue',
+          'green',
+          // ... add more colors if needed
+        ]
+      }]
+    }
+  });
+
+  // Chart 2: Funding Amount by Month (Bar Chart)
+  var ctx2 = document.getElementById('chart2').getContext('2d');
+  var chart2 = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: <?php echo json_encode($months); ?>,
+      datasets: [{
+        label: 'Funding Amount',
+        data: <?php echo json_encode($amounts); ?>,
+        backgroundColor: 'blue'
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  // Chart 3: Another Chart (e.g., Pie Chart)
+  var ctx3 = document.getElementById('chart3').getContext('2d');
+  var chart3 = new Chart(ctx3, {
+    type: 'pie',
+    data: {
+      labels: ['Label 1', 'Label 2', 'Label 3'],
+      datasets: [{
+        data: [10, 20, 30],
+        backgroundColor: ['orange', 'purple', 'green']
+      }]
+    }
+  });
+
+  // Include other chart scripts here if needed
+</script>
+
+
+
+
+
+<script>
+  // Chart 1: Citizen Group Distribution by Village (Pie Chart)
+  var ctx1 = document.getElementById('chart1').getContext('2d');
+  var chart1 = new Chart(ctx1, {
+    type: 'pie',
+    data: {
+      labels: ["Village 1", "Village 2", "Village 3"], // Replace with your actual village labels
+      datasets: [{
+        data: [30, 25, 45], // Replace with your actual village counts
+        backgroundColor: [
+          'red',
+          'blue',
+          'green'
+        ] // Use appropriate colors for each segment
+      }]
+    }
+  });
+</script>
+
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <script src="../vendors/chart.js/Chart.min.js"></script>
@@ -625,3 +635,5 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
 </body>
 
 </html>
+
+

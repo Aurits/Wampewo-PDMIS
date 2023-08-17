@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `citizen_groups` (
   `ID` int(11) NOT NULL,
   `Name` varchar(255) NOT NULL,
+  `Chair` varchar(255) NOT NULL,
   `Contact_Information` varchar(255) NOT NULL,
   `Business_Description` text DEFAULT NULL,
   `Funding_Proposal` text DEFAULT NULL,

@@ -286,6 +286,18 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
             </div>
           </li>
           <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#citizens" aria-expanded="false" aria-controls="tables">
+              <i class="menu-icon mdi mdi-table"></i>
+              <span class="menu-title">Citizens</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="citizens">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="./citizens.php">Citizens</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#messages" aria-expanded="false" aria-controls="tables">
               <i class="menu-icon mdi mdi-table"></i>
               <span class="menu-title">Messages</span>
@@ -323,39 +335,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                     <li class="nav-item">
                       <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Groups</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link border-0" id="more-tab" data-bs-toggle="tab" href="#more" role="tab" aria-selected="false">More</a>
-                    </li>
+
                   </ul>
                   <div>
-                    <div class="btn-wrapper">
 
-                      <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
-                      <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
-                    </div>
                   </div>
                 </div>
                 <div class="tab-content tab-content-basic">
                   <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="statistics-details d-flex align-items-center justify-content-between">
-                          <div>
-                            <p class="statistics-title">Groups</p>
-                            <h3 class="rate-percentage">32</h3>
-
-                          </div>
-                          <div>
-                            <p class="statistics-title">People</p>
-                            <h3 class="rate-percentage">4758</h3>
-
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
-
-
 
                     <?php
                     // Include connection
@@ -364,37 +351,42 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                     ini_set('display_errors', 1);
                     error_reporting(E_ALL);
 
-
                     if (isset($_POST['register'])) {
                       $name = $_POST['name'];
                       $phone = $_POST['phone'];
+                      $chair = $_POST['chair'];
                       $description = $_POST['description'];
                       $proposal = $_POST['proposal'];
                       $people = $_POST['people'];
-
                       $income = $_POST['income'];
-
                       $village = $_POST['village'];
-
 
                       // Validate and sanitize user input (you can add more validation as needed)
                       $name = mysqli_real_escape_string($conn, $name);
 
+                      $sql = "INSERT INTO citizen_groups (Name, Contact_Information, Chair, Business_Description, Funding_Proposal, Number_of_People, Amount_for_Funding, village) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                      $stmt = mysqli_prepare($conn, $sql);
 
-                      // Perform the actual registration process and insert data into the database
-                      $sql = "INSERT INTO citizen_groups (Name, Contact_Information, Business_description, Funding_Proposal, Number_of_People, Amount_for_Funding, village) VALUES ('$name', '$phone', '$description', '$proposal', '$people', '$income', '$village')";
-                      $result = mysqli_query($conn, $sql);
+                      if ($stmt) {
+                        mysqli_stmt_bind_param($stmt, "ssssssds", $name, $phone, $chair, $description, $proposal, $people, $income, $village);
 
-                      if ($result) {
-                        // Registration successful, redirect to the profile page
-                        echo "<script>" . "window.location.href='./';" . "</script>";
-                        exit();
+                        $result = mysqli_stmt_execute($stmt);
+
+                        if ($result) {
+                          // Registration successful, redirect to the profile page
+                          echo "<script>" . "window.location.href='./';" . "</script>";
+                          exit();
+                        } else {
+                          // Registration failed
+                          echo '<div class="alert alert-danger h-25" role="alert">Registration failed. Please try again.</div>';
+                        }
+
+                        mysqli_stmt_close($stmt);
                       } else {
-                        // Registration failed
-                        echo '<div class="alert alert-danger h-25" role="alert">Registration failed. Please try again.</div>';
+                        // Statement preparation failed
+                        echo "Error: " . mysqli_error($conn);
                       }
                     }
-
                     ?>
 
 
@@ -409,8 +401,12 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                             <input type="text" class="form-control" id="name" name="name" required>
                           </div>
                           <div class="form-group">
-                            <label for="phone">Phone</label>
+                            <label for="phone">Phone(Chair)</label>
                             <input type="text" class="form-control" id="phone" name="phone" required>
+                          </div>
+                          <div class="form-group">
+                            <label for="chair">Name(Chair)</label>
+                            <input type="text" class="form-control" id="chair" name="chair" required>
                           </div>
                           <div class="form-group">
                             <label for="description">Description</label>
@@ -418,7 +414,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                           </div>
 
                           <div class="form-group">
-                            <label for="proposal">Proposal</label>
+                            <label for="proposal">Business Proposal Serial</label>
                             <input type="text" class="form-control" id="proposal" name="proposal" required>
                           </div>
                           <div class="form-group">
@@ -426,15 +422,28 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                             <input type="number" class="form-control" id="income" name="income" required>
                           </div>
                           <div class="form-group">
-                            <label for="people">People</label>
+                            <label for="people">No. of People</label>
                             <input type="number" class="form-control" id="people" name="people" required>
                           </div>
                           <div class="form-group">
-                            <label for="village">Village</label>
-                            <input type="text" class="form-control" id="village" name="village" required>
-                          </div>
-                          <!-- Add other fields if needed -->
-                          <button type="submit" class="btn btn-primary mb-2" name="register">Register</button>
+                            <div class="form-group">
+                              <label for="village">Village (Ekyalo)</label>
+                              <select class="form-control" id="village" name="village" required>
+                                <option value="">Other</option>
+                                <option value="village1">Buyinja A</option>
+                                <option value="village3">Buyinja B</option>
+                                <option value="village2">Kito - Magere</option>
+                                <option value="village3">Kiwaliimu</option>
+                                <option value="village3">Kazinga</option>
+                                <option value="village3">Luteete</option>
+                                <option value="village3">Luteete B</option>
+                                <option value="village2">Magere</option>
+                                <option value="village3">Wampeewo</option>
+                                <!-- Add more options as needed -->
+                              </select>
+                            </div>
+                            <!-- Add other fields if needed -->
+                            <button type="submit" class="btn btn-primary mb-2" name="register">Register</button>
                         </form>
                       </div>
                     </main>
@@ -446,7 +455,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                 <footer class="footer">
                   <div class="d-sm-flex justify-content-center justify-content-sm-between">
                     <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampewo Parish)</span>
-                    <img class="m-auto" width="90px" height="50px" src="../images/logo2.png" alt="image">
+
                     <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
                   </div>
                 </footer>
