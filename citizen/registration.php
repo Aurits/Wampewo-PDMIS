@@ -307,11 +307,11 @@
            <h4 class="text-center">Register as a Citizen</h4>
            <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
              <div class="form-group">
-               <label for="name">Name</label>
+               <label for="name">Name (Amanya gwo)</label>
                <input type="text" class="form-control" id="name" name="name" required>
              </div>
              <div class="form-group">
-               <label for="phone">Phone</label>
+               <label for="phone">Phone (enamba yesimu)</label>
                <input type="text" class="form-control" id="phone" name="phone" required>
              </div>
              <div class="form-group">
@@ -319,7 +319,7 @@
                <input type="text" class="form-control" id="email" name="email" required>
              </div>
              <div class="form-group">
-               <label for="age">Age</label>
+               <label for="age">Age (emyaka)</label>
                <input type="number" class="form-control" id="age" name="age" required>
              </div>
              <div class="form-group">
@@ -327,21 +327,37 @@
                <input type="text" class="form-control" id="gender" name="gender" required>
              </div>
              <div class="form-group">
-               <label for="occupation">Occupation</label>
+               <label for="occupation">Occupation (okola mulimu ki)</label>
                <input type="text" class="form-control" id="occupation" name="occupation" required>
              </div>
              <div class="form-group">
-               <label for="income">Income (ugx)</label>
+               <label for="income">Income (ugx)-(Omusala)</label>
                <input type="number" class="form-control" id="income" name="income" required>
              </div>
              <div class="form-group">
-               <label for="education">Education</label>
+               <label for="education">Education (ebyenjigiriza)</label>
                <input type="text" class="form-control" id="education" name="education" required>
              </div>
              <div class="form-group">
-               <label for="village">Village</label>
-               <input type="text" class="form-control" id="village" name="village" required>
+               <div class="form-group">
+                 <label for="village">Village (Ekyalo)</label>
+                 <select class="form-control" id="village" name="village" required>
+                   <option value="">Other</option>
+                   <option value="village1">Buyinja A</option>
+                   <option value="village3">Buyinja B</option>
+                   <option value="village2">Kito - Magere</option>
+                   <option value="village3">Kiwaliimu</option>
+                   <option value="village3">Kazinga</option>
+                   <option value="village3">Luteete</option>
+                   <option value="village3">Luteete B</option>
+                   <option value="village2">Magere</option>
+                   <option value="village3">Wampeewo</option>
+                   <!-- Add more options as needed -->
+                 </select>
+               </div>
+
              </div>
+
              <!-- Add other fields if needed -->
              <button type="submit" class="btn btn-primary mb-2" name="register">Register</button>
            </form>
@@ -361,8 +377,8 @@
        <!-- partial:partials/_footer.html -->
        <footer class="footer">
          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-           <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampewo Parish)</span>
-           <img class="m-auto" width="90px" height="50px" src="../images/logo2.png" alt="image">
+           <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampeewo Parish)</span>
+
            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
          </div>
        </footer>

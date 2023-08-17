@@ -268,14 +268,14 @@
      </nav>
      <!-- partial -->
      <div class="main-panel">
-
        <?php
         # Include connection
         require_once "./config.php";
         ?>
+
        <main>
          <div class="container">
-           <h1 class="" style="overflow: hidden; line-height: 2px">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h1>
+           <h3 class="display-4 mt-5 mb-4">Our Information Portal</h3>
            <div class="row">
              <?php
               function getServices($conn)
@@ -285,28 +285,27 @@
 
                 if (mysqli_num_rows($result) > 0) {
                   while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<div class="col-md-4">';
-                    echo '<div class="service-card">';
-                    echo '<div class="">';
-                    echo '<img src="../images/logo2.png" alt="">';
-                    echo '<div><br>';
-                    echo '<h6>' . $row['Name'] . '</h6>';
+                    echo '<div class="col-md-4 mb-4">';
+                    echo '<div class="service-card shadow">';
+                    echo '<div class="service-image">';
+                    echo '<img src="../images/blog-thumb.png" alt="Service Image">';
                     echo '</div>';
+                    echo '<div class="service-content p-3">';
+                    echo '<h5 class="mb-3">' . $row['Name'] . '</h5>';
+                    echo '<p class="mb-2">' . $row['Description'] . '</p>';
+                    echo '<a href="https://molg.go.ug/parish-development-model/" class="btn btn-primary btn-sm">Learn More</a>'; // CTA button
                     echo '</div>';
-                    echo '<h6 class="mt-2">' . $row['Description'] . '</h6>';
-
-                    echo '<a href="#" class="btn btn-primary mt-3">Learn More</a>'; // CTA button
                     echo '</div>';
                     echo '</div>';
                   }
                 } else {
                   echo '<div class="col-md-12">';
-                  echo '<p>No services found.</p>';
+                  echo '<p class="text-center">No posts found.</p>';
                   echo '</div>';
                 }
               }
 
-              // Display services in cards using grid
+              // Display services in styled cards using grid
               getServices($conn);
               ?>
            </div>
@@ -318,21 +317,13 @@
         mysqli_close($conn);
         ?>
 
-
-
-
-
-       <!-- content-wrapper ends -->
-       <!-- partial:partials/_footer.html -->
-       <footer class="footer">
-         <div class="d-sm-flex justify-content-center justify-content-sm-between">
-           <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampewo Parish)</span>
-           <img class="m-auto" width="90px" height="50px" src="../images/logo2.png" alt="image">
-           <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
+       <footer class="footer mt-auto">
+         <div class="container text-center">
+           <span class="text-muted">Government of <a href="#" target="_blank">Uganda</a> (Wampeewo Parish) &bull; &copy; 2023. All rights reserved.</span>
          </div>
        </footer>
-       <!-- partial -->
      </div>
+
      <!-- main-panel ends -->
    </div>
    <!-- page-body-wrapper ends -->

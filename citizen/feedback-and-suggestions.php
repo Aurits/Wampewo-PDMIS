@@ -307,7 +307,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" novalidate>
 
             <div class="form-group">
-              <label for="feedback_type">Feedback Type:</label>
+              <label for="feedback_type">Feedback Type:(omutwe gwo bubaka)</label>
               <select name="feedback_type" id="feedback_type" required>
                 <option value="" disabled selected>Select Feedback Type</option>
                 <option value="Feedback">Feedback</option>
@@ -317,7 +317,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="row control-group">
               <div class="form-group col-xs-12 floating-label-form-group controls">
-                <label>Message</label>
+                <label>Message (bubaka)</label>
                 <textarea style="height: 22vh" rows="10" class="form-control" placeholder="Message" name="message" required data-validation-required-message="Please enter a message."></textarea>
                 <p class="help-block text-danger"></p>
               </div>
@@ -345,8 +345,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <!-- partial:partials/_footer.html -->
       <footer class="footer">
         <div class="d-sm-flex justify-content-center justify-content-sm-between">
-          <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampewo Parish)</span>
-          <img class="m-auto" width="90px" height="50px" src="../images/logo2.png" alt="image">
+          <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampeewo Parish)</span>
+
           <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
         </div>
       </footer>

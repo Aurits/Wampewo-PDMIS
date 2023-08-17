@@ -448,7 +448,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                                             echo '</div>';
                                             echo '</td>';
                                             echo '<td class="w-25">';
-                                            echo '<h6>' . $row['Description'] . '</h6>';
+                                            echo '<h6>' . (strlen($row['Description']) > 100 ? substr($row['Description'], 0, 100) . '...' : $row['Description']) . '</h6>';
+
                                             echo '</td>';
                                             echo '<td>';
                                             echo '<button class="btn btn-danger" onclick="deleteService(' . $row['ID'] . ')">Delete</button>';

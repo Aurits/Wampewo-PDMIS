@@ -596,11 +596,11 @@
                   <h2>Start a New Discussion</h2>
                   <form action="" method="POST">
                     <div class="form-group">
-                      <label for="topic_title">Topic Title:</label>
+                      <label for="topic_title">Topic Title: (omutwe gwo bubaka)</label>
                       <input type="text" name="topic_title" id="topic_title" class="form-control" required>
                     </div>
                     <div class="form-group">
-                      <label for="topic_subject">Subject:</label>
+                      <label for="topic_subject">Subject: (bubaka)</label>
                       <textarea name="topic_subject" id="topic_subject" class="form-control" rows="4" required></textarea>
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
@@ -614,21 +614,12 @@
         </div>
       </main>
 
-
-
-
-
-
-
-
-
-
       <!-- content-wrapper ends -->
       <!-- partial:partials/_footer.html -->
       <footer class="footer">
         <div class="d-sm-flex justify-content-center justify-content-sm-between">
-          <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampewo Parish)</span>
-          <img class="m-auto" width="90px" height="50px" src="../images/logo2.png" alt="image">
+          <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampeewo Parish)</span>
+
           <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
         </div>
       </footer>
