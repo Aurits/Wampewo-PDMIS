@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Wampewo - Parish Development Model Information System </title>
+  <title>Wampeewo - Parish Development Model Information System </title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../vendors/feather/feather.css">
   <link rel="stylesheet" href="../vendors/mdi/css/materialdesignicons.min.css">
@@ -297,7 +297,7 @@
     <div class="navbar-menu-wrapper d-flex align-items-top">
       <ul class="navbar-nav">
         <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-          <h1 class="welcome-text">Wampewo <span class="text-black fw-bold">PDMIS</span></h1>
+          <h1 class="welcome-text">Wampeewo <span class="text-black fw-bold">PDMIS</span></h1>
           <h3 class="welcome-sub-text">National Summary </h3>
         </li>
       </ul>
@@ -393,8 +393,8 @@
                 <img src="../images/logo1.jpeg" alt="image" class="img-sm profile-pic">
               </div>
               <div class="preview-item-content flex-grow py-2">
-                <p class="preview-subject ellipsis font-weight-medium text-dark">Wampewo Parish </p>
-                <p class="fw-light small-text mb-0"> Implementing PDM (Wampewo) </p>
+                <p class="preview-subject ellipsis font-weight-medium text-dark">Wampeewo Parish </p>
+                <p class="fw-light small-text mb-0"> Implementing PDM (Wampeewo) </p>
               </div>
             </a>
           </div>
@@ -439,7 +439,7 @@
         <li class="nav-item">
           <a class="nav-link" href="../index.html">
             <i class="mdi mdi-grid-large menu-icon"></i>
-            <span class="menu-title">Wampewo Parish</span>
+            <span class="menu-title">Wampeewo Parish</span>
           </a>
         </li>
         <li class="nav-item nav-category">Pages</li>

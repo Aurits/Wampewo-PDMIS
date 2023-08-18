@@ -58,7 +58,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
       <div class="navbar-menu-wrapper d-flex align-items-top">
         <ul class="navbar-nav">
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-            <h1 class="welcome-text">Wampewo <span class="text-black fw-bold">PDMIS</span></h1>
+            <h1 class="welcome-text">Wampeewo <span class="text-black fw-bold">PDMIS</span></h1>
             <h3 class="welcome-sub-text">Admin</h3>
           </li>
         </ul>
@@ -186,7 +186,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                   <img src="../images/logo1.jpeg" alt="image" class="img-sm profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Wampewo Parish</p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Wampeewo Parish</p>
                   <p class="fw-light small-text mb-0"> Parish Development Model </p>
                 </div>
               </a>
@@ -199,8 +199,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
                 <img class="img-md rounded-circle" src="../images/user.png" alt="Profile image">
-                <p class="mb-1 mt-3 font-weight-semibold">Wampewo Parish</p>
-                <p class="fw-light text-muted mb-0">wampewo@parish.gov</p>
+                <p class="mb-1 mt-3 font-weight-semibold">Wampeewo Parish</p>
+                <p class="fw-light text-muted mb-0">Wampeewo@parish.gov</p>
               </div>
 
               <a class="dropdown-item" href="communication.php"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
@@ -351,11 +351,23 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                           error_reporting(E_ALL);
                           ini_set('display_errors', 1);
 
+
+                          // Query to get citizen group distribution by village
+                          $query = "SELECT village, COUNT(*) as count FROM citizen_groups GROUP BY village";
+                          $result = mysqli_query($conn, $query);
+                          $villages = array();
+                          $counts = array();
+                          while ($row = mysqli_fetch_assoc($result)) {
+                            $villages[] = $row['village'];
+                            $counts[] = $row['count'];
+                          }
+
+
                           // Function to get statistics from the database
                           function getStatistics($conn)
                           {
                             // Query to get the count of registered citizens
-                            $sqlCitizens = "SELECT COUNT(*) AS total_citizens FROM wampewo_citizens";
+                            $sqlCitizens = "SELECT COUNT(*) AS total_citizens FROM Wampeewo_citizens";
                             $resultCitizens = mysqli_query($conn, $sqlCitizens);
                             $rowCitizens = mysqli_fetch_assoc($resultCitizens);
                             $totalCitizens = $rowCitizens['total_citizens'];
@@ -425,16 +437,27 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                             <div class="card-body">
                               <div class="d-sm-flex justify-content-between align-items-start">
                                 <div>
-                                  <h4 class="card-title card-title-dash">Investment</h4>
-
-                                </div>
-                                <div>
 
                                 </div>
                               </div>
                               <div class="d-sm-flex align-items-center mt-1 justify-content-between">
                                 <div class="d-sm-flex align-items-center mt-4 justify-content-between">
-                                  <h2 class="me-2 fw-bold">32Billion</h2>
+                                  <?php
+                                  # Include connection
+                                  require_once "./config.php";
+
+                                  // Calculate the total amount
+                                  $sqlTotalAmount = "SELECT SUM(Amount_for_Funding) AS total_amount FROM citizen_groups";
+                                  $resultTotalAmount = mysqli_query($conn, $sqlTotalAmount);
+                                  $rowTotalAmount = mysqli_fetch_assoc($resultTotalAmount);
+                                  $totalAmount = $rowTotalAmount['total_amount'];
+
+                                  // Display the total amount in the HTML
+                                  echo '<h2 class="me-2 fw-bold">' . number_format($totalAmount, 2) . '</h2>'; // Format the amount as needed
+
+
+                                  ?>
+
                                   <h4 class="me-2">UGX</h4>
 
                                 </div>
@@ -442,8 +465,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                                   <div id="marketing-overview-legend"></div>
                                 </div>
                               </div>
-                              <div class="chartjs-bar-wrapper mt-3">
-                                <canvas id="marketingOverview"></canvas>
+                              <div class="row card">
+                                <div style="height: 20vh" class=" m-auto col-md-4 col-4 h-25">
+
+                                  <!-- Chart 1: Citizen Group Distribution by Village (Pie Chart) -->
+                                  <canvas id="chart1"></canvas>
+
+                                  <!-- Other charts go here -->
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -456,11 +485,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                               <div class="d-sm-flex justify-content-between align-items-start">
                                 <div>
                                   <h4 class="card-title card-title-dash">Recent Groups</h4>
-                                  <p class="card-subtitle card-subtitle-dash">For this month</p>
                                 </div>
 
                               </div>
-                              <div class="table-responsive  mt-1">
+
+                              <div class="card-body mb-5">
+                                <!-- Add Group Button -->
+                                <a href="add-group.php" class="btn btn-primary text-white me-0"><i class="icon-plus"></i> Add Group</a>
+
                                 <?php
                                 # Include connection
                                 require_once "./config.php";
@@ -477,10 +509,12 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                                     echo '<table class="table select-table">';
                                     echo '<thead>';
                                     echo '<tr>';
-                                    echo '<th>Group ID</th>';
+
                                     echo '<th>Group Name</th>';
+                                    echo '<th>Chair</th>';
                                     echo '<th>Description</th>';
-                                    echo '<th>Funding Proposal</th>';
+                                    echo '<th>Funding</th>';
+                                    echo '<th>Proposal Serial</th>'; // Fix typo here
                                     echo '<th>Action</th>';
                                     echo '</tr>';
                                     echo '</thead>';
@@ -488,10 +522,11 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
 
                                     while ($row = mysqli_fetch_assoc($result)) {
                                       echo '<tr>';
-                                      echo '<td>' . $row['ID'] . '</td>';
-                                      echo '<td>' . $row['Name'] . '</td>';
-                                      echo '<td>' . (strlen($row['Business_Description']) > 100 ? substr($row['Business_Description'], 0, 100) . '...' : $row['Business_Description']) . '</td>';
 
+                                      echo '<td>' . $row['Name'] . '</td>';
+                                      echo '<td>' . $row['Chair'] . '<br>' . $row['Contact_Information'] . '</td>';
+                                      echo '<td>' . substr($row['Business_Description'], 0, 100) . '</td>';
+                                      echo '<td>' . $row['Amount_for_Funding'] . '</td>'; // Fix column name here
                                       echo '<td>' . $row['Funding_Proposal'] . '</td>';
                                       echo '<td>';
                                       echo '<button class="btn btn-primary text-white me-1" onclick="manageGroup(' . $row['ID'] . ')"><i class="icon-pencil"></i> Manage</button>';
@@ -518,6 +553,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
 
                                   if ($stmt->execute()) {
                                     echo '<script>alert("Group deleted successfully!");</script>';
+                                    echo "<script>" . "window.location.href='./add-group.php';" . "</script>";
                                   } else {
                                     echo '<script>alert("Failed to delete group. Please try again.");</script>';
                                   }
@@ -532,51 +568,17 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                                 // Close the database connection
                                 mysqli_close($conn);
                                 ?>
-                                <!-- Add Group Button -->
-                                <a href="add-group.php" class="btn btn-primary text-white me-0"><i class="icon-plus"></i> Add Group</a>
-
-                                <script>
-                                  // Function to manage group and display confirmation alert before deleting
-                                  function manageGroup(groupID) {
-                                    var confirmation = confirm("Are you sure you want to manage this group? This will delete the record and redirect you to add it afresh.");
-                                    if (confirmation) {
-                                      window.location.href = "add-group.php?id=" + groupID;
-                                    }
-                                  }
-
-                                  // Function to delete group and display confirmation alert
-                                  function deleteGroup(groupID) {
-                                    var confirmation = confirm("Are you sure you want to delete this group?");
-                                    if (confirmation) {
-                                      // Create a form to submit the group ID for deletion
-                                      var form = document.createElement("form");
-                                      form.method = "post";
-                                      form.action = ""; // Add the action URL here
-
-                                      var input = document.createElement("input");
-                                      input.type = "hidden";
-                                      input.name = "group_id";
-                                      input.value = groupID;
-                                      form.appendChild(input);
-
-                                      var input2 = document.createElement("input");
-                                      input2.type = "hidden";
-                                      input2.name = "delete_group";
-                                      input2.value = "1";
-                                      form.appendChild(input2);
-
-                                      document.body.appendChild(form);
-                                      form.submit();
-                                    }
-                                  }
-                                </script>
 
                               </div>
+
+
+
                             </div>
                           </div>
                         </div>
                       </div>
-                      <!--  <div class="row flex-grow">
+                    </div>
+                    <!--  <div class="row flex-grow">
                         <div class="col-md-6 col-lg-6 grid-margin stretch-card">
                           <div class="card card-rounded">
                             <div class="card-body card-rounded">
@@ -650,7 +652,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                             <div class="card-body">
                               <div class="d-flex align-items-center justify-content-between mb-3">
                                 <h4 class="card-title card-title-dash">Activities</h4>
-                                <p class="mb-0">In Wampewo</p>
+                                <p class="mb-0">In Wampeewo</p>
                               </div>
                               <ul class="bullet-line-list">
                                 <li>
@@ -702,7 +704,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                           </div>
                         </div>
                       </div> -->
-                    </div>
                   </div>
                 </div>
               </div>
@@ -712,11 +713,12 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
       </div>
     </div>
   </div>
+  </div>
   <!-- content-wrapper ends -->
 
   <footer class="footer">
     <div class="d-sm-flex justify-content-center justify-content-sm-between">
-      <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampewo Parish)</span>
+      <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampeewo Parish)</span>
 
       <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
     </div>
@@ -728,6 +730,73 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
   <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+
+  <script>
+    // Function to manage group and display confirmation alert before deleting
+    function manageGroup(groupID) {
+      var confirmation = confirm("Are you sure you want to manage this group? This will delete the record and redirect you to add it afresh.");
+      if (confirmation) {
+        window.location.href = "add-group.php?id=" + groupID;
+        deleteGroup(groupID);
+      }
+    }
+
+    // Function to delete group and display confirmation alert
+    function deleteGroup(groupID) {
+      var confirmation = confirm("Are you sure you want to delete this group?");
+      if (confirmation) {
+        // Create a form to submit the group ID for deletion
+        var form = document.createElement("form");
+        form.method = "post";
+        form.action = ""; // Add the action URL here
+
+        var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = "group_id";
+        input.value = groupID;
+        form.appendChild(input);
+
+        var input2 = document.createElement("input");
+        input2.type = "hidden";
+        input2.name = "delete_group";
+        input2.value = "1";
+        form.appendChild(input2);
+
+        document.body.appendChild(form);
+        form.submit();
+      }
+    }
+  </script>
+
+
+  <script>
+    // Chart 1: Citizen Group Distribution by Village (Pie Chart)
+    var ctx1 = document.getElementById('chart1').getContext('2d');
+    var chart1 = new Chart(ctx1, {
+      type: 'pie',
+      data: {
+        labels: <?php echo json_encode($villages); ?>,
+        datasets: [{
+          data: <?php echo json_encode($counts); ?>,
+          backgroundColor: [
+            'red',
+            'blue',
+            'green',
+            // ... add more colors if needed
+          ]
+        }]
+      },
+      options: {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Citizen Group Distribution by Village'
+          }
+        }
+      }
+    });
+  </script>
 
   <!-- plugins:js -->
   <script src="../vendors/js/vendor.bundle.base.js"></script>

@@ -25,7 +25,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
   <link rel="stylesheet" href="../vendors/simple-line-icons/css/simple-line-icons.css">
   <link rel="stylesheet" href="../vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
   <!-- Plugin css for this page -->
   <link rel="stylesheet" href="../vendors/datatables.net-bs4/dataTables.bootstrap4.css">
   <link rel="stylesheet" href="../js/select.dataTables.min.css">
@@ -59,7 +59,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
       <div class="navbar-menu-wrapper d-flex align-items-top">
         <ul class="navbar-nav">
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-            <h1 class="welcome-text">Wampewo <span class="text-black fw-bold">PDMIS</span></h1>
+            <h1 class="welcome-text">Wampeewo <span class="text-black fw-bold">PDMIS</span></h1>
             <h3 class="welcome-sub-text">Admin</h3>
           </li>
         </ul>
@@ -187,7 +187,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                   <img src="../images/logo1.jpeg" alt="image" class="img-sm profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Wampewo Parish</p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Wampeewo Parish</p>
                   <p class="fw-light small-text mb-0"> Parish Development Model </p>
                 </div>
               </a>
@@ -200,8 +200,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
                 <img class="img-md rounded-circle" src="../images/user.png" alt="Profile image">
-                <p class="mb-1 mt-3 font-weight-semibold">Wampewo Parish</p>
-                <p class="fw-light text-muted mb-0">wampewo@parish.gov</p>
+                <p class="mb-1 mt-3 font-weight-semibold">Wampeewo Parish</p>
+                <p class="fw-light text-muted mb-0">Wampeewo@parish.gov</p>
               </div>
 
               <a class="dropdown-item" href="communication.php"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
@@ -356,7 +356,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                           function getStatistics($conn)
                           {
                             // Query to get the count of registered citizens
-                            $sqlCitizens = "SELECT COUNT(*) AS total_citizens FROM wampewo_citizens";
+                            $sqlCitizens = "SELECT COUNT(*) AS total_citizens FROM Wampeewo_citizens";
                             $resultCitizens = mysqli_query($conn, $sqlCitizens);
                             $rowCitizens = mysqli_fetch_assoc($resultCitizens);
                             $totalCitizens = $rowCitizens['total_citizens'];
@@ -418,88 +418,76 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                       </div>
                     </div>
                   </div>
-      <?php
-      // Include connection
-                    require_once "./config.php";
+                  <?php
+                  // Include connection
+                  require_once "./config.php";
 
-                    ini_set('display_errors', 1);
-                    error_reporting(E_ALL);
+                  // Query to get citizen group distribution by village
+                  $query = "SELECT village, COUNT(*) as count FROM citizen_groups GROUP BY village";
+                  $result = mysqli_query($conn, $query);
+                  $villages = array();
+                  $counts = array();
+                  while ($row = mysqli_fetch_assoc($result)) {
+                    $villages[] = $row['village'];
+                    $counts[] = $row['count'];
+                  }
 
-      // Query to get citizen group distribution by village
-      $query = "SELECT village, COUNT(*) as count FROM citizen_groups GROUP BY village";
-      $result = mysqli_query($conn, $query);
-      $villages = array();
-      $counts = array();
-      while ($row = mysqli_fetch_assoc($result)) {
-        $villages[] = $row['village'];
-        $counts[] = $row['count'];
-      }
+                  // Query to get funding amount by month for the current year
+                  $query = "SELECT MONTH(timestamps) as month, SUM(Amount_for_Funding) as total_amount FROM citizen_groups WHERE YEAR(timestamps) = YEAR(NOW()) GROUP BY month";
+                  $result = mysqli_query($conn, $query);
+                  $months = array();
+                  $amounts = array();
+                  while ($row = mysqli_fetch_assoc($result)) {
+                    $months[] = date("F", mktime(0, 0, 0, $row['month'], 1));
+                    $amounts[] = $row['total_amount'];
+                  }
 
-      // Similarly, fetch data for other charts here
 
-      ?>
-
-    <?php
-    // Include connection
-    require_once "./config.php";
-
-    // Query to get the count of citizen groups by village
-    $query = "SELECT village, COUNT(*) as count FROM citizen_groups GROUP BY village";
-    $result = mysqli_query($conn, $query);
-    $villages = array();
-    $counts = array();
-    while ($row = mysqli_fetch_assoc($result)) {
-      $villages[] = $row['village'];
-      $counts[] = $row['count'];
-    }
-
-    ?>
-    <?php
-    // Include connection
-                    require_once "./config.php";
-
-                    ini_set('display_errors', 1);
-                    error_reporting(E_ALL);
-    // Query to get funding amount by month for the current year
-    $query = "SELECT MONTH(FROM_UNIXTIME(timestamp)) as month, SUM(Amount_for_Funding) as total_amount FROM citizen_groups WHERE YEAR(FROM_UNIXTIME(timestamp)) = YEAR(NOW()) GROUP BY month";
-    $result = mysqli_query($conn, $query);
-    $months = array();
-    $amounts = array();
-    while ($row = mysqli_fetch_assoc($result)) {
-      $months[] = date("F", mktime(0, 0, 0, $row['month'], 1));
-      $amounts[] = $row['total_amount'];
-    }
-
-    ?>
+                  $query = "SELECT gender, COUNT(*) as count FROM Wampeewo_citizens GROUP BY gender";
+                  $result = mysqli_query($conn, $query);
+                  $genders = array();
+                  $genderCounts = array();
+                  while ($row = mysqli_fetch_assoc($result)) {
+                    $genders[] = $row['gender'];
+                    $genderCounts[] = $row['count'];
+                  }
+                  ?>
 
 
 
 
 
 
- <div class="row">
-                    <div style="height: 20vh" class=" d-flex flex-column h-25">
-                     
-                        <!-- Chart 1: Citizen Group Distribution by Village (Pie Chart) -->
-                        <canvas id="chart1"></canvas>
-                      
+
+                  <div class="row card">
+                    <div style="height: 20vh" class=" m-auto col-md-4 col-4 h-25">
+
+                      <!-- Chart 1: Citizen Group Distribution by Village (Pie Chart) -->
+                      <canvas id="chart1"></canvas>
+
                       <!-- Other charts go here -->
                     </div>
                   </div>
-                  
-                  <!-- More Charts Section -->
-                  <div class="row">
-                    <div class="col-md-4 col-4">
-                      <!-- Chart 2: Funding Amount by Month (Bar Chart) -->
-                      <canvas id="chart2"></canvas>
+
+                  <br>
+                  <br>
+
+
+                  <div class="card">
+                    <!-- More Charts Section -->
+                    <div class="row d-flex justify-content-between">
+                      <div class="col-md-4 col-4">
+                        <!-- Chart 2: Funding Amount by Month (Bar Chart) -->
+                        <canvas class="mt-5 h-75 ml-5" id="chart2"></canvas>
+                      </div>
+                      <div class="col-md-4 col-4">
+                        <!-- Chart 3: Another Chart Here -->
+                        <canvas id="chart3"></canvas>
+                      </div>
+                      <!-- Add more columns or charts as needed -->
                     </div>
-                    <div class="col-md-4 col-4">
-                      <!-- Chart 3: Another Chart Here -->
-                      <canvas id="chart3"></canvas>
-                    </div>
-                    <!-- Add more columns or charts as needed -->
                   </div>
-                  
+
                 </div>
               </div>
             </div>
@@ -512,7 +500,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
 
   <footer class="footer">
     <div class="d-sm-flex justify-content-center justify-content-sm-between">
-      <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampewo Parish)</span>
+      <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampeewo Parish)</span>
 
       <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
     </div>
@@ -528,90 +516,112 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
   <!-- plugins:js -->
   <script src="../vendors/js/vendor.bundle.base.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
 
-
-
-<!-- Include your CSS links here -->
-<!-- Include your JavaScript links here -->
-
-<script>
-  // Chart 1: Citizen Group Distribution by Village (Pie Chart)
-  var ctx1 = document.getElementById('chart1').getContext('2d');
-  var chart1 = new Chart(ctx1, {
-    type: 'pie',
-    data: {
-      labels: <?php echo json_encode($villages); ?>,
-      datasets: [{
-        data: <?php echo json_encode($counts); ?>,
-        backgroundColor: [
-          'red',
-          'blue',
-          'green',
-          // ... add more colors if needed
-        ]
-      }]
-    }
-  });
-
-  // Chart 2: Funding Amount by Month (Bar Chart)
-  var ctx2 = document.getElementById('chart2').getContext('2d');
-  var chart2 = new Chart(ctx2, {
-    type: 'bar',
-    data: {
-      labels: <?php echo json_encode($months); ?>,
-      datasets: [{
-        label: 'Funding Amount',
-        data: <?php echo json_encode($amounts); ?>,
-        backgroundColor: 'blue'
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
+  <script>
+    // Chart 1: Citizen Group Distribution by Village (Pie Chart)
+    var ctx1 = document.getElementById('chart1').getContext('2d');
+    var chart1 = new Chart(ctx1, {
+      type: 'pie',
+      data: {
+        labels: <?php echo json_encode($villages); ?>,
+        datasets: [{
+          data: <?php echo json_encode($counts); ?>,
+          backgroundColor: [
+            'red',
+            'blue',
+            'green',
+            // ... add more colors if needed
+          ]
+        }]
+      },
+      options: {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Citizen Group Distribution by Village'
+          }
         }
       }
-    }
-  });
+    });
 
-  // Chart 3: Another Chart (e.g., Pie Chart)
-  var ctx3 = document.getElementById('chart3').getContext('2d');
-  var chart3 = new Chart(ctx3, {
-    type: 'pie',
-    data: {
-      labels: ['Label 1', 'Label 2', 'Label 3'],
-      datasets: [{
-        data: [10, 20, 30],
-        backgroundColor: ['orange', 'purple', 'green']
-      }]
-    }
-  });
+    var ctx2 = document.getElementById('chart2').getContext('2d');
+    var chart2 = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: <?php echo json_encode($months); ?>,
+        datasets: [{
+          label: 'Funding Amount',
+          data: <?php echo json_encode($amounts); ?>,
+          backgroundColor: 'green'
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: 'Funding Amount by Month'
+          }
+        }
+      }
+    });
 
-  // Include other chart scripts here if needed
-</script>
+
+    // Dynamic Pie Chart for Gender Distribution
+    var ctx = document.getElementById('chart3').getContext('2d');
+    var genderChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: <?php echo json_encode($genders); ?>,
+        datasets: [{
+          data: <?php echo json_encode($genderCounts); ?>,
+          backgroundColor: [
+            'blue',
+            'pink',
+            // ... add more colors if needed
+          ]
+        }]
+      },
+      options: {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Gender Distribution of Citizens'
+          }
+        }
+      }
+    });
+  </script>
 
 
 
 
 
-<script>
-  // Chart 1: Citizen Group Distribution by Village (Pie Chart)
-  var ctx1 = document.getElementById('chart1').getContext('2d');
-  var chart1 = new Chart(ctx1, {
-    type: 'pie',
-    data: {
-      labels: ["Village 1", "Village 2", "Village 3"], // Replace with your actual village labels
-      datasets: [{
-        data: [30, 25, 45], // Replace with your actual village counts
-        backgroundColor: [
-          'red',
-          'blue',
-          'green'
-        ] // Use appropriate colors for each segment
-      }]
-    }
-  });
-</script>
+
+
+  <script>
+    // Chart 1: Citizen Group Distribution by Village (Pie Chart)
+    var ctx1 = document.getElementById('chart1').getContext('2d');
+    var chart1 = new Chart(ctx1, {
+      type: 'pie',
+      data: {
+        labels: ["Village 1", "Village 2", "Village 3"], // Replace with your actual village labels
+        datasets: [{
+          data: [30, 25, 45], // Replace with your actual village counts
+          backgroundColor: [
+            'red',
+            'blue',
+            'green'
+          ] // Use appropriate colors for each segment
+        }]
+      }
+    });
+  </script>
 
   <!-- endinject -->
   <!-- Plugin js for this page -->
@@ -635,5 +645,3 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
 </body>
 
 </html>
-
-

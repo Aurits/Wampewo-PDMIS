@@ -58,7 +58,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
       <div class="navbar-menu-wrapper d-flex align-items-top">
         <ul class="navbar-nav">
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-            <h1 class="welcome-text">Wampewo <span class="text-black fw-bold">PDMIS</span></h1>
+            <h1 class="welcome-text">Wampeewo <span class="text-black fw-bold">PDMIS</span></h1>
             <h3 class="welcome-sub-text">Admin</h3>
           </li>
         </ul>
@@ -186,7 +186,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                   <img src="../images/logo1.jpeg" alt="image" class="img-sm profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Wampewo Parish</p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Wampeewo Parish</p>
                   <p class="fw-light small-text mb-0"> Parish Development Model </p>
                 </div>
               </a>
@@ -199,8 +199,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
                 <img class="img-md rounded-circle" src="../images/user.png" alt="Profile image">
-                <p class="mb-1 mt-3 font-weight-semibold">Wampewo Parish</p>
-                <p class="fw-light text-muted mb-0">wampewo@parish.gov</p>
+                <p class="mb-1 mt-3 font-weight-semibold">Wampeewo Parish</p>
+                <p class="fw-light text-muted mb-0">Wampeewo@parish.gov</p>
               </div>
 
               <a class="dropdown-item" href="communication.php"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
@@ -355,7 +355,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                           function getStatistics($conn)
                           {
                             // Query to get the count of registered citizens
-                            $sqlCitizens = "SELECT COUNT(*) AS total_citizens FROM wampewo_citizens";
+                            $sqlCitizens = "SELECT COUNT(*) AS total_citizens FROM Wampeewo_citizens";
                             $resultCitizens = mysqli_query($conn, $sqlCitizens);
                             $rowCitizens = mysqli_fetch_assoc($resultCitizens);
                             $totalCitizens = $rowCitizens['total_citizens'];
@@ -410,6 +410,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                           <div class="card">
 
                             <div class="card-body mb-5">
+                              <!-- Add Group Button -->
+                              <a href="add-group.php" class="btn btn-primary text-white me-0"><i class="icon-plus"></i> Add Group</a>
 
                               <?php
                               # Include connection
@@ -427,10 +429,12 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                                   echo '<table class="table select-table">';
                                   echo '<thead>';
                                   echo '<tr>';
-                                  echo '<th>Group ID</th>';
+
                                   echo '<th>Group Name</th>';
+                                  echo '<th>Chair</th>';
                                   echo '<th>Description</th>';
-                                  echo '<th>Funding Proposal</th>';
+                                  echo '<th>Funding</th>';
+                                  echo '<th>Proposal Serial</th>'; // Fix typo here
                                   echo '<th>Action</th>';
                                   echo '</tr>';
                                   echo '</thead>';
@@ -438,9 +442,11 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
 
                                   while ($row = mysqli_fetch_assoc($result)) {
                                     echo '<tr>';
-                                    echo '<td>' . $row['ID'] . '</td>';
+
                                     echo '<td>' . $row['Name'] . '</td>';
+                                    echo '<td>' . $row['Chair'] . '<br>' . $row['Contact_Information'] . '</td>';
                                     echo '<td>' . substr($row['Business_Description'], 0, 100) . '</td>';
+                                    echo '<td>' . $row['Amount_for_Funding'] . '</td>'; // Fix column name here
                                     echo '<td>' . $row['Funding_Proposal'] . '</td>';
                                     echo '<td>';
                                     echo '<button class="btn btn-primary text-white me-1" onclick="manageGroup(' . $row['ID'] . ')"><i class="icon-pencil"></i> Manage</button>';
@@ -467,6 +473,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
 
                                 if ($stmt->execute()) {
                                   echo '<script>alert("Group deleted successfully!");</script>';
+                                  echo "<script>" . "window.location.href='./add-group.php';" . "</script>";
                                 } else {
                                   echo '<script>alert("Failed to delete group. Please try again.");</script>';
                                 }
@@ -481,45 +488,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                               // Close the database connection
                               mysqli_close($conn);
                               ?>
-                              <!-- Add Group Button -->
-                              <a href="add-group.php" class="btn btn-primary text-white me-0"><i class="icon-plus"></i> Add Group</a>
+
                             </div>
 
-                            <script>
-                              // Function to manage group and display confirmation alert before deleting
-                              function manageGroup(groupID) {
-                                var confirmation = confirm("Are you sure you want to manage this group? This will delete the record and redirect you to add it afresh.");
-                                if (confirmation) {
-                                  window.location.href = "add-group.php?id=" + groupID;
-                                }
-                              }
 
-                              // Function to delete group and display confirmation alert
-                              function deleteGroup(groupID) {
-                                var confirmation = confirm("Are you sure you want to delete this group?");
-                                if (confirmation) {
-                                  // Create a form to submit the group ID for deletion
-                                  var form = document.createElement("form");
-                                  form.method = "post";
-                                  form.action = ""; // Add the action URL here
-
-                                  var input = document.createElement("input");
-                                  input.type = "hidden";
-                                  input.name = "group_id";
-                                  input.value = groupID;
-                                  form.appendChild(input);
-
-                                  var input2 = document.createElement("input");
-                                  input2.type = "hidden";
-                                  input2.name = "delete_group";
-                                  input2.value = "1";
-                                  form.appendChild(input2);
-
-                                  document.body.appendChild(form);
-                                  form.submit();
-                                }
-                              }
-                            </script>
 
 
                             <div class="row flex-grow">
@@ -569,7 +541,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
 
             <footer class="footer">
               <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampewo Parish)</span>
+                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampeewo Parish)</span>
                 <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
               </div>
             </footer>
@@ -580,6 +552,44 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
         <!-- page-body-wrapper ends -->
       </div>
       <!-- container-scroller -->
+
+
+      <script>
+        // Function to manage group and display confirmation alert before deleting
+        function manageGroup(groupID) {
+          var confirmation = confirm("Are you sure you want to manage this group? This will delete the record and redirect you to add it afresh.");
+          if (confirmation) {
+            window.location.href = "add-group.php?id=" + groupID;
+            deleteGroup(groupID);
+          }
+        }
+
+        // Function to delete group and display confirmation alert
+        function deleteGroup(groupID) {
+          var confirmation = confirm("Are you sure you want to delete this group?");
+          if (confirmation) {
+            // Create a form to submit the group ID for deletion
+            var form = document.createElement("form");
+            form.method = "post";
+            form.action = ""; // Add the action URL here
+
+            var input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "group_id";
+            input.value = groupID;
+            form.appendChild(input);
+
+            var input2 = document.createElement("input");
+            input2.type = "hidden";
+            input2.name = "delete_group";
+            input2.value = "1";
+            form.appendChild(input2);
+
+            document.body.appendChild(form);
+            form.submit();
+          }
+        }
+      </script>
 
       <!-- plugins:js -->
       <script src="../vendors/js/vendor.bundle.base.js"></script>

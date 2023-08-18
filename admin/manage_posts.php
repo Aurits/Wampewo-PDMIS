@@ -91,7 +91,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
       <div class="navbar-menu-wrapper d-flex align-items-top">
         <ul class="navbar-nav">
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-            <h1 class="welcome-text">Wampewo <span class="text-black fw-bold">PDMIS</span></h1>
+            <h1 class="welcome-text">Wampeewo <span class="text-black fw-bold">PDMIS</span></h1>
             <h3 class="welcome-sub-text">Admin</h3>
           </li>
         </ul>
@@ -219,7 +219,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
                   <img src="../images/logo1.jpeg" alt="image" class="img-sm profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Wampewo Parish</p>
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Wampeewo Parish</p>
                   <p class="fw-light small-text mb-0"> Parish Development Model </p>
                 </div>
               </a>
@@ -232,8 +232,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
                 <img class="img-md rounded-circle" src="../images/user.png" alt="Profile image">
-                <p class="mb-1 mt-3 font-weight-semibold">Wampewo Parish</p>
-                <p class="fw-light text-muted mb-0">wampewo@parish.gov</p>
+                <p class="mb-1 mt-3 font-weight-semibold">Wampeewo Parish</p>
+                <p class="fw-light text-muted mb-0">Wampeewo@parish.gov</p>
               </div>
 
               <a class="dropdown-item" href="communication.php"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
@@ -528,7 +528,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
 
     <footer class="footer">
       <div class="d-sm-flex justify-content-center justify-content-sm-between">
-        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampewo Parish)</span>
+        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Government of <a href="" target="_blank">Uganda</a> (Wampeewo Parish)</span>
 
         <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
       </div>
