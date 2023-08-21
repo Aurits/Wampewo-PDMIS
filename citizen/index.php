@@ -275,7 +275,7 @@
 
        <main>
          <div class="container">
-           <h3 class="display-4 mt-5 mb-4">Our Information Portal</h3>
+           <h3 class="display-4 mt-5 mb-4">Wampeewo Information Portal</h3>
            <div class="row">
              <?php
               function getServices($conn)
