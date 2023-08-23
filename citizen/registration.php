@@ -341,19 +341,20 @@
              <div class="form-group">
                <div class="form-group">
                  <label for="village">Village (Ekyalo)</label>
-                 <select class="form-control" id="village" name="village" required>
-                   <option value="">Other</option>
-                   <option value="village1">Buyinja A</option>
-                   <option value="village3">Buyinja B</option>
-                   <option value="village2">Kito - Magere</option>
-                   <option value="village3">Kiwaliimu</option>
-                   <option value="village3">Kazinga</option>
-                   <option value="village3">Luteete</option>
-                   <option value="village3">Luteete B</option>
-                   <option value="village2">Magere</option>
-                   <option value="village3">Wampeewo</option>
-                   <!-- Add more options as needed -->
-                 </select>
+                <select class="form-control" id="village" name="village" required>
+    <option value="">Other</option>
+    <option value="Buyinja A">Buyinja A</option>
+    <option value="Buyinja B">Buyinja B</option>
+    <option value="Kito - Magere">Kito - Magere</option>
+    <option value="Kiwaliimu">Kiwaliimu</option>
+    <option value="Kazinga">Kazinga</option>
+    <option value="Luteete">Luteete</option>
+    <option value="Luteete B">Luteete B</option>
+    <option value="Magere">Magere</option>
+    <option value="Wampeewo">Wampeewo</option>
+    <!-- Add more options as needed -->
+</select>
+
                </div>
 
              </div>
